@@ -1,1 +1,1 @@
-web: gunicorn bookclub.wsgi
+web: gunicorn page-turner-bookclub.wsgi
