@@ -8,6 +8,7 @@ from cloudinary.models import CloudinaryField
 class Book(models.Model):
 
     title = models.CharField(max_length=250, unique=True)
+    # slug = models.SlugField(max_length=250, unique=True)
     author = models.CharField(max_length=250)
     
     LITERARY_FICTION = 'LF'
@@ -65,3 +66,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+
+class BookPoll(models.Model):
+
+    # user_id = models.ForeignKey(self, on_delete=models.CASCADE)
+    question = models.CharField(max_length=250, unique=True)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    description = models.TextField()
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
