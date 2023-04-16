@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
+    'django_autoslug',
+    'django_extensions',
     'bookclub',
 ]
 

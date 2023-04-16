@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_extensions.db.fields import AutoSlugField
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
@@ -8,7 +9,7 @@ from cloudinary.models import CloudinaryField
 class Book(models.Model):
 
     title = models.CharField(max_length=250, unique=True)
-    # slug = models.SlugField(max_length=250, unique=True)
+    slug = AutoSlugField(populate_from='title', unique=True)
     author = models.CharField(max_length=250)
     
     LITERARY_FICTION = 'LF'
@@ -55,7 +56,7 @@ class Book(models.Model):
 class Comment(models.Model):
 
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="Comments")
-    name = models.CharField(max_length=75)
+    name = models.CharField(max_length=75, default='Blank')
     email = models.EmailField()
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -70,9 +71,15 @@ class Comment(models.Model):
 
 class BookPoll(models.Model):
 
-    # user_id = models.ForeignKey(self, on_delete=models.CASCADE)
+    name = models.CharField(max_length=75, default='Blank')
     question = models.CharField(max_length=250, unique=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     description = models.TextField()
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
+
+    class Meta:
+        ordering = ['start_date']
+
+    def __str__(self):
+        return f"Poll {self.question} by {self.name}"
