@@ -83,3 +83,9 @@ class BookPoll(models.Model):
 
     def __str__(self):
         return f"Poll {self.question} by {self.name}"
+
+
+# class PollVote(models.Model):
+    
+#     question = models.ForeignKey(BookP, on_delete=models.CASCADE)
+
