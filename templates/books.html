@@ -4,9 +4,45 @@
 
 <div class="container">
     <div class="row">
-
-        <!-- Books entries -->
-        
-
+        <div class="col-12">
+            <h1 class="page-title">Books Recommendations</h1>
+        </div>
     </div>
+    <br>
+        <!-- Books entries -->
+        {% for book in book_list %}
+        <div class="card" style="width: 18rem;">
+            {% if "placeholder" in book.featured_image.url %}
+            <img src="..." class="card-img-top" alt="placeholder image">
+            {% else %}
+            <img class="card-img-top" src=" {{ book.features_image.url }}">
+            {% endif %}
+            <div class="image-flash">
+                <p class="author">Author: {{ book.author }}</p>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">{{ book.title}}</h3>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Read More</a>
+              <br>
+              <p><i class="far fa-heart">{{ book.number_of_likes}}</i></p>
+            </div>
+        </div>
+        {% endfor%}  
+
+        <!-- Pagination from Django blog -->
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+    
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
 </div>
+{% endblock %}

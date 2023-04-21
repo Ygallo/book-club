@@ -22,7 +22,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg blue">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand cream" href="#">Page Turner Book Club</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
               aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -30,19 +30,13 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active cream" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link cream" href="{% url 'books' %}">Books</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Books
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Recommended</a></li>
-                  <li><a class="dropdown-item" href="#">Book of the Month</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle cream" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Account
                 </a>
                 <ul class="dropdown-menu">
@@ -56,13 +50,21 @@
       </nav>
 
     <!-- End Navigation -->
+    
+    <main class="flex-shrink-0 main-bg">
+      {% block content %}
+      <!-- Content Goes here -->
+      {% endblock content %}
+    </main>
+
+   
 
     <!-- Footer -->
-    <footer>
+    <footer class="nav justify-content-center border-bottom pb-3 mb-3">
       <div class="container">
-        <ul class="social-networks">
-          <li>
-            <a href="http://www.facebook.com" target="_blank" aria-label="Visit our Facebook page. Opens in a new tab"><i class="fa-brands fa-facebook"></i></a>
+        <ul class="social-networks nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-body-secondary" href="http://www.facebook.com" target="_blank" aria-label="Visit our Facebook page. Opens in a new tab"><i class="fa-brands fa-facebook"></i></a>
           </li>
           <li>
             <a href="http://www.instagram.com" target="_blank" aria-label="Visit our Instagram page. Opens in a new tab"><i class="fa-brands fa-instagram"></i></a>
@@ -77,8 +79,8 @@
       </div>
     </footer>
 
-
     <!-- End Footer -->
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/b03bc5fab6.js" crossorigin="anonymous"></script>
      <!-- Bootstrap CDN -->

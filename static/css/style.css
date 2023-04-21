@@ -2,6 +2,11 @@
 /* Header - Navigation */
 .blue {
     background-color: #2e3a42;
+    font-family: 'open sans', 'sans serif'; 
+}
+
+.cream {
+    color: #f2ecce;
 }
 
 
@@ -14,4 +19,8 @@ footer {
 i.fa {
     color: #f2ecce;
     font-size: 30px;
+}
+
+.social-networks {
+    list-style: none;
 }
