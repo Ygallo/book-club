@@ -26,8 +26,8 @@ class BookDetail(View):
     """
     View to display books with full description, comments and likes.
     """
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Book.objects.filter(status=1)
+    def get(self, request, slug):
+        queryset = Book.objects.all
         book = get_object_or_404(queryset, slug=slug)
         comments = book.comments.filter(approved=True).order_by(created_on)
         liked = False
@@ -36,9 +36,9 @@ class BookDetail(View):
         
         return render(
             request,
-            "book.detail.html",
+            "books_detail.html",
             {
-                "books": books,
+                "book": books,
                 "comments": comments,
                 "liked": liked
             }

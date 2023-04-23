@@ -15,7 +15,7 @@
             {% if "placeholder" in book.featured_image.url %}
             <img src="..." class="card-img-top" alt="placeholder image">
             {% else %}
-            <img class="card-img-top" src=" {{ book.features_image.url }}">
+            <img class="card-img-top" src=" {{ book.featured_image.url }}">
             {% endif %}
             <div class="image-flash">
                 <p class="author">Author: {{ book.author }}</p>
@@ -23,7 +23,7 @@
             <div class="card-body">
               <h3 class="card-title">{{ book.title}}</h3>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Read More</a>
+              <a href=" # " class="btn btn-primary">Read More</a>
               <br>
               <p><i class="far fa-heart">{{ book.number_of_likes}}</i></p>
             </div>
