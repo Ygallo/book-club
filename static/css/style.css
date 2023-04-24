@@ -8,19 +8,54 @@
 .cream {
     color: #f2ecce;
 }
+/* Index.html - Section 1*/
+.light-yellow {
+    background-color: #f2ecce;
+}
+.openbook {
+    width: 500;
+    height: 500;
 
+}
 
+.love-book {
+    font-family: 'open sans', 'sans serif';
+    font-weight: 600;
+    font-style: italic;
+    color: #2e3a42;
+}
+
+.equal {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*.featurette-divider {
+    
+}*/
+.icons {
+    font-size: 30px;
+    align-content: center;
+}
+.index-card {
+    font-family: 'open sans', 'sans serif';
+    font-weight: 300;
+    color: #2e3a42;
+    font-size: 15px;
+}
 /* Footer */
 
 footer {
     background-color:#d87f53;
 }
 
-i.fa {
+li i{
     color: #f2ecce;
-    font-size: 30px;
 }
 
 .social-networks {
     list-style: none;
+    font-size: 25px;
+    color: #f2ecce;
+    letter-spacing: 10px;
 }

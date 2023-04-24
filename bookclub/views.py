@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Book
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -33,14 +34,15 @@ class BookDetail(View):
         liked = False
         if post.likes.filter(id=self.user.id).exist():
             liked = True    
-        
+
         return render(
             request,
             "books_detail.html",
             {
                 "book": books,
                 "comments": comments,
-                "liked": liked
+                "liked": liked,
+                "comment_form": CommentForm()
             }
         )
 

@@ -1,47 +1,61 @@
 {% extends "base.html" %}
 
 {% block content %} 
-<!-- Section -->
+<!-- Section 1 -->
 
-<div class="container text-center">
-  <div class="row">
-      <div class="col ">
-        image
+<div class="container-fluid light-yellow overflow-hidden">
+  <div class="row featurette">
+      <div class="col-7 ">
+        <img class="img-fluid openbook equal" src="/static/images/library.jpg" alt="open book"> 
       </div>
-      <div class="col">
-       <p>Love getting lost in a book, join our tribe and join in on the conversation.</p>
+      <div class="col-5">
+       <p class="lead align-items-end love-book equal">Love getting lost in a book, join in on the conversation and lets get lost together.</p>
       </div>
-
+      <hr class="featurette-divider">
+  </div>
+</div>  
 <!-- How to join the experience section -->
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col lg-4">
-      <img class="rounded circle " src="" alt="" width="140" height="140" >
-      <p>View the books the recommended in the club</p>
+    <div class="card">
+      <div class="card-body">
+        <i class="fa-solid fa-book fa-3x"></i>
+        <p class="card-text mt-3 index-card">View the books the recommended in the club</p>
+      </div>
     </div>
-    <div class="col lg-4">
-      <img class="rounded circle " src="" alt="" width="140" height="140" >
-      <p>Join us</p>
+    <div class="card">
+      <div class="card-body">
+        <i class="fa-solid fa-plus fa-3x"></i>
+        <p class="card-text mt-3 index-card">Join our tribe</p>
+      </div>
     </div>
-    <div class="col lg-4">
-      <img class="rounded circle " src="" alt="" width="140" height="140" >
-      <p>Propose new books to read and discuss with a poll</p>
+    <div class="card">
+      <div class="card-body">
+        <i class="fa-solid fa-poll-people fa-3x"></i>
+        <p class="card-text mt-3 index-card">Propose new books to read with a poll</p>
+      </div>
     </div>
-    <div class="col lg-4">
-      <img class="rounded circle " src="" alt="" width="140" height="140" >
-      <p>Share your comments</p>
+    <div class="card">
+      <div class="card-body">
+        <i class="fa-solid fa-comment fa-3x"></i>
+        <p class="card-text mt-3 index-card">Share your comments</p>
+      </div>
     </div>
-    <div class="col lg-4">
-      <img class="rounded circle " src="" alt="" width="140" height="140" >
-      <p>Rate each book you read</p>
+    <div class="card">
+      <div class="card-body">
+        <i class="fa-solid fa-comment-heart fa-3x"></i>
+        <p class="card-text mt-3 index-card">Rate each book you read</p>
+      </div>
     </div>
-    <div class="col lg-4">
-      <img class="rounded circle " src="" alt="" width="140" height="140" >
-      <p>Connect with other member on out monthly discussions</p>
+    <div class="card">
+      <div class="card-body">
+        <i class="fa-solid fa-circle-nodes fa-3x"></i>
+        <p class="card-text mt-3 index-card">Connect with other member on out monthly discussions</p>
+      </div>
     </div>
-
+    <hr class="featurette-divider">
     
 
   </div>
-</div>
+
 {% endblock %} 
