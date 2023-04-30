@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from .models import Book
-from .forms import CommentForm
+from .forms import CommentForm, 
 
 # Create your views here.
 
@@ -77,4 +77,12 @@ class BookDetail(View):
                 "comment_form": CommentForm()
             }
         )
+
+
+class AddBook(generic.CreateView):
+    """
+    View to allow users once logged in to add a book
+    """
+    form_class = BookForm
+    template_name = 'add_book.html'
 
