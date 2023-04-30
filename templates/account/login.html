@@ -7,11 +7,11 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-flex light-yellow">
   <div class="row justify-content-center">
-    <div class="col md-8 mt-3 offset-md-2">
+    <div class="col-11 col-md-6 col-lg-4 mt-3 mb-3">
 
-      <h1>{% trans "Sign In" %}</h1>
+      <h1>{% trans "Log In" %}</h1>
 
 
         <p>{% blocktrans %}Welcome to Page Turner Book Club. If you want to join our monthly discussions, and do not have an account yet,
@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-md-8 mt-3 offset-md-2"></div>
+    <div class="col-11 col-md-6 col-lg-4 mt-3 mb-3">
    
 
         <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -29,8 +29,7 @@
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-          <button class="btn bnt-signup right" type="submit">{% trans "Sign In" %}</button>
+          <button class="btn btn-account right" type="submit">{% trans "Sign In" %}</button>
         </form>
     </div>
   </div>

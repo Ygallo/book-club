@@ -8,11 +8,11 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Book)
 class BookAdmin(SummernoteModelAdmin):
 
-    # propopulated_fields = {'slug': ('title',)}
-    list_filter = ('genre_choices', 'author')
+    propopulated_fields = {'slug': ('title',)}
+    list_filter = ('genre_choices', 'author', 'created_on')
     search_fields = ('title', 'genre')
     list_display = ('title', 'genre_choices', 'author')
-    summernote_fields = ('description')
+    summernote_fields = ('description', 'excerpt')
 
 
 @admin.register(Comment)

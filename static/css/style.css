@@ -8,7 +8,9 @@
 .cream {
     color: #f2ecce;
 }
-/* Index.html - Section 1*/
+
+
+/* Index.html - Section Featured Image*/
 .light-yellow {
     background-color: #f2ecce;
 }
@@ -33,6 +35,16 @@
 /*.featurette-divider {
     
 }*/
+
+/* Index.html - Section  Join*/
+
+.join-icon {
+    color: #eb6162;
+}
+.dark-blue {
+    background-color: #2e3a42;
+}
+
 .icons {
     font-size: 30px;
     align-content: center;
@@ -40,7 +52,7 @@
 .index-card {
     font-family: 'open sans', 'sans serif';
     font-weight: 300;
-    color: #2e3a42;
+    color: #f2ecce;
     font-size: 15px;
 }
 /* Footer */
@@ -59,3 +71,10 @@ li i{
     color: #f2ecce;
     letter-spacing: 10px;
 }
+
+/* Account Log in, Sign up, Log out  */
+.btn-account {
+    background-color: #2e3a42;
+    color: #f2ecce;
+}
+
