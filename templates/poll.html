@@ -13,9 +13,9 @@
                 <form>
                     {% for book in books_selection.all %}
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="choice_id" id="{{ choice.id }}">
-                      <label class="form-check-label" for="{{ choice.id }}">
-                        {{ books_selection }}
+                      <input class="form-check-input" type="radio" name="choice_id" id="{{ book.books_selection }}">
+                      <label class="form-check-label" for="{{ book.books_selection }}">
+                        {{ book.books_selection }}
                       </label>
                     </div>
                     {% endfor %}

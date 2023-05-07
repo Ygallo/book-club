@@ -10,5 +10,5 @@ urlpatterns = [
     path('mybooks/', views.MyBooks.as_view(), name='my_books'),
     path('books/<slug:slug>/edit', views.EditBook.as_view(), name='edit_book'),
     path('books/<slug:slug>/delete', views.DeleteBook.as_view(), name='delete_book'),
-    path('poll/', views.PollVote.as_view(), name='poll')
+    #path('poll/', views.PollChoice.as_view(), name='poll')
 ]

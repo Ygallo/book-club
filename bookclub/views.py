@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Book, BookPoll, PollVote
+from .models import Book, BookQuestionPoll, PollChoice
 from .forms import CommentForm, BookForm, PollForm
 from django_currentuser.middleware import (
     get_current_user, get_current_authenticated_user)
@@ -132,34 +132,44 @@ class DeleteBook(generic.DeleteView):
     success_url = reverse_lazy('my_books')
 
 
-class BookPoll(generic.CreateView):
-    """
-    View to allow users create a book poll to choose what book
-    to discuss
-    """
-    form_class = PollForm
-    template_name = 'poll.html'
-
-
-class PollVote(generic.CreateView):
+class PollVote(generic.ListView):
     """
     View to allow users to vote on a book poll
     """
-    model = PollVote
+    model = PollChoice
     template_name = 'poll.html'
+    queryset = Book.objects.order_by('title')
     fields = '__all__'
     success_message = "Thank you for your vote!"
     success_url = reverse_lazy('books.html')
 
-    def get(self, request):
-        poll = Book.objects.all()
+# Show specific question and choices
+    def detail(request, question_id):
+        try:
+            question = BookQuestionPoll.objects.get(pk = question_id)
+        except BookQuestionPoll.DoesNotExist:
+            raise Http404("Question does not exist")
+        return render(request, 'poll.html', {'question': question})
 
-        return render(
-            request,
-            "poll.html",
-            {
-                "poll_title": poll_title,
-                "books_selection": books_selection,
-                "timestamp": timestamp,
-            },
-        )
+# Vote for a question choice
+ 
+ 
+def vote(request, question_id):
+    # print(request.POST['choice'])
+    question = get_object_or_404(BookQuestionPoll, pk = question_id)
+    try:
+        selected_choice = question.choice_set.get(pk = request.POST['choice'])
+    except (KeyError, Choice.DoesNotExist):
+        # Redisplay the question voting form.
+        return render(request, 'polls.html', {
+            'question': question,
+            'error_message': "You didn't select a choice.",
+        })
+    else:
+        selected_choice.votes += 1
+        selected_choice.save()
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        return HttpResponseRedirect(reverse('polls:results', args =(question.id, )))
+ 

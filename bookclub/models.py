@@ -72,11 +72,12 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
-class BookPoll(models.Model):
+class BookQuestionPoll(models.Model):
 
     poll_title = models.CharField(max_length=75, default='Blank')
-    notes = models.CharField(max_length=250, unique=True)
-    books_selection = models.ManyToManyField(Book, related_name='poll', blank=False)
+    question_text = models.CharField(max_length=200, default='Blank')
+    #notes = models.CharField(max_length=250, unique=True)
+    #books_selection = models.ManyToManyField(Book, related_name='poll', blank=False)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
 
@@ -87,12 +88,12 @@ class BookPoll(models.Model):
         return self.poll_title 
 
 
-class PollVote(models.Model):
+class PollChoice(models.Model):
 
-    poll = models.ForeignKey(BookPoll, on_delete=models.CASCADE, related_name="vote", null=True, blank=True)
-    choices = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="vote")
-    timestamp = models.DateTimeField()
+    poll = models.ForeignKey(BookQuestionPoll, on_delete=models.CASCADE)
+    choices = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"{self.poll_title} - {self.choice.name}"
+        return f"{self.choices}"
 
