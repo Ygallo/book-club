@@ -2,5 +2,29 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
+<div class="container-fluid light-yellow ">
+    <h2 class="page-title justify-content-center">Poll Vote</h2>
+    <hr>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-6 col-lg-4 mt-3 mb-3">
+            
+                {% if user.is_authenticated %}
+                <form>
+                    {% for book in books_selection.all %}
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="choice_id" id="{{ choice.id }}">
+                      <label class="form-check-label" for="{{ choice.id }}">
+                        {{ books_selection }}
+                      </label>
+                    </div>
+                    {% endfor %}
+                    <hr class="my-4">
+                    <button class="btn btn-outline-success">Vote</button>
+                  </form>
+                {% endif %}
 
+        </div>
+    </div>
+</div>
 {% endblock %}

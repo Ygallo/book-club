@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book, Comment, BookPoll
+from .models import Book, Comment, BookPoll, PollVote
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -30,6 +30,5 @@ class CommentAdmin(SummernoteModelAdmin):
 @admin.register(BookPoll)
 class PollAdmin(SummernoteModelAdmin):
 
-    list_display = ('question', 'start_date', 'end_date')
-    list_filter = ('book', 'question')
-    search_fields = ('book', 'question')
+    list_display = ('poll_title', 'start_date', 'end_date')
+    list_filter = ('poll_title', )

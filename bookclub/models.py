@@ -4,13 +4,14 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
-
 class Book(models.Model):
 
     title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
     author = models.CharField(max_length=250)
- 
+    created_by = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="books")
+
     LITERARY_FICTION = 'LF'
     MISTERY = 'MI'
     THRILLER = 'TR'
@@ -43,7 +44,7 @@ class Book(models.Model):
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='book_likes', blank=True)
-    
+
     class Meta:
         ordering = ['title']
 
@@ -56,7 +57,8 @@ class Book(models.Model):
 
 class Comment(models.Model):
 
-    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="comments")
+    book = models.ForeignKey(Book, on_delete=models.CASCADE,
+            related_name="comments")
     name = models.CharField(max_length=75, default='Blank')
     email = models.EmailField()
     body = models.TextField()
@@ -72,10 +74,9 @@ class Comment(models.Model):
 
 class BookPoll(models.Model):
 
-    name = models.CharField(max_length=75, default='Blank')
-    question = models.CharField(max_length=250, unique=True)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    description = models.TextField()
+    poll_title = models.CharField(max_length=75, default='Blank')
+    notes = models.CharField(max_length=250, unique=True)
+    books_selection = models.ManyToManyField(Book, related_name='poll', blank=False)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
 
@@ -83,10 +84,15 @@ class BookPoll(models.Model):
         ordering = ['start_date']
 
     def __str__(self):
-        return f"Poll {self.question} by {self.name}"
+        return self.poll_title 
 
 
-# class PollVote(models.Model):
-    
-#     question = models.ForeignKey(BookP, on_delete=models.CASCADE)
+class PollVote(models.Model):
+
+    poll = models.ForeignKey(BookPoll, on_delete=models.CASCADE, related_name="vote", null=True, blank=True)
+    choices = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="vote")
+    timestamp = models.DateTimeField()
+
+    def __str__(self):
+        return f"{self.poll_title} - {self.choice.name}"
 
