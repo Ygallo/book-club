@@ -72,28 +72,19 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
-class BookQuestionPoll(models.Model):
-
-    poll_title = models.CharField(max_length=75, default='Blank')
-    question_text = models.CharField(max_length=200, default='Blank')
-    #notes = models.CharField(max_length=250, unique=True)
-    #books_selection = models.ManyToManyField(Book, related_name='poll', blank=False)
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
-
-    class Meta:
-        ordering = ['start_date']
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
 
     def __str__(self):
-        return self.poll_title 
+        return self.question_text
 
 
-class PollChoice(models.Model):
-
-    poll = models.ForeignKey(BookQuestionPoll, on_delete=models.CASCADE)
-    choices = models.CharField(max_length=200)
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"{self.choices}"
+        return self.choice_text
 

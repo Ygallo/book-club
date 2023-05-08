@@ -1,4 +1,4 @@
-from .models import Comment, Book, BookQuestionPoll
+from .models import Comment, Book, Question
 from django import forms
 
 
@@ -22,13 +22,13 @@ class BookForm(forms.ModelForm):
         ]
 
 
-class PollForm(forms.ModelForm):
-    class Meta:
-        model = BookQuestionPoll
-        fields = [
-            'poll_title',
-            #'notes',
-            #'books_selection',
-            'start_date',
-            'end_date',
-        ]
+# class PollForm(forms.ModelForm):
+#     class Meta:
+#         model = Question
+#         fields = [
+#             'poll_title',
+#             #'notes',
+#             #'books_selection',
+#             'start_date',
+#             'end_date',
+#         ]

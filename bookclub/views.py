@@ -1,12 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Book, BookQuestionPoll, PollChoice
-from .forms import CommentForm, BookForm, PollForm
-from django_currentuser.middleware import (
-    get_current_user, get_current_authenticated_user)
-
-from django_currentuser.db.models import CurrentUserField
+from .models import Book, Question, Choice
+from .forms import CommentForm, BookForm
+from django.template import loader
 from django.urls import reverse_lazy
+from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 
@@ -95,7 +93,7 @@ class MyBooks(generic.ListView):
     paginate_by = 8
 
     def get_queryset(self):
-        return Book.objects.filter(created_by=self.request.user.id)    
+        return Book.objects.filter(created_by=self.request.user.id)
 
 
 class AddBook(generic.CreateView):
@@ -105,9 +103,9 @@ class AddBook(generic.CreateView):
     form_class = BookForm
     template_name = 'add_book.html'
     success_url = reverse_lazy('my_books')
-    
+
     def form_valid(self, form):
-    # Save a new Listing object from the form's data.
+        # Save a new Listing object from the form's data.
         form.instance.created_by = self.request.user
         return super().form_valid(form)
 
@@ -132,36 +130,58 @@ class DeleteBook(generic.DeleteView):
     success_url = reverse_lazy('my_books')
 
 
-class PollVote(generic.ListView):
-    """
-    View to allow users to vote on a book poll
-    """
-    model = PollChoice
-    template_name = 'poll.html'
-    queryset = Book.objects.order_by('title')
-    fields = '__all__'
-    success_message = "Thank you for your vote!"
-    success_url = reverse_lazy('books.html')
+# class PollVote(generic.ListView):
+#     """
+#     View to allow users to vote on a book poll
+#     """
+#     model = PollChoice
+#     template_name = 'poll.html'
+#     queryset = Book.objects.order_by('title')
+#     fields = '__all__'
+#     success_message = "Thank you for your vote!"
+#     success_url = reverse_lazy('books.html')
+
+
+# Get questions and display them
+def Test(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'test.html', context)
+
+
+def index(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'polls/index.html', context)
 
 # Show specific question and choices
-    def detail(request, question_id):
-        try:
-            question = BookQuestionPoll.objects.get(pk = question_id)
-        except BookQuestionPoll.DoesNotExist:
-            raise Http404("Question does not exist")
-        return render(request, 'poll.html', {'question': question})
+
+
+def detail(request, question_id):
+    try:
+        question = Question.objects.get(pk=question_id)
+    except Question.DoesNotExist:
+        raise Http404("Question does not exist")
+    return render(request, 'polls/detail.html', {'question': question})
+
+# Get question and display results
+
+
+def results(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/results.html', {'question': question})
 
 # Vote for a question choice
- 
- 
+
+
 def vote(request, question_id):
     # print(request.POST['choice'])
-    question = get_object_or_404(BookQuestionPoll, pk = question_id)
+    question = get_object_or_404(Question, pk=question_id)
     try:
-        selected_choice = question.choice_set.get(pk = request.POST['choice'])
+        selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'polls.html', {
+        return render(request, 'polls/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
         })
@@ -171,5 +191,4 @@ def vote(request, question_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('polls:results', args =(question.id, )))
- 
+        return HttpResponseRedirect(reverse('results', args=(question.id, )))
