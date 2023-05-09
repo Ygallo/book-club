@@ -1,15 +1,47 @@
 {% extends "base.html" %}
 
 {% block content %} 
-<!-- Section 1 -->
+<!-- Carousel -->
 
-<div class="container-fluid light-yellow overflow-hidden">
-  <div class="row featurette">
-      <div class="col-7 ">
-        <img class="img-fluid openbook equal" src="/static/images/library.jpg" alt="Library"> 
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/static/images/oldbooks_1920.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Love getting lost in a book, join in on the conversation and lets get lost together.</p>
       </div>
-      <div class="col-5">
-       <p class="lead align-items-end love-book equal">Love getting lost in a book, join in on the conversation and lets get lost together.</p>
+    </div>
+    <div class="carousel-item">
+      <img src="/static/images/library.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>"Books and doors are the same thing. You open them, and you go through into another world." Jeanette Winterson</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/static/images/openbook2.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>"Reading is an exercise in empathy; an exercise in walking in someone else’s shoes for a while."  Malorie Blackman</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
       </div>
       <hr class="featurette-divider">
   </div>
@@ -65,13 +97,14 @@
         </div>
       </div>
     </div>
+  </div>
     <hr class="featurette-divider"> 
 </div>
 <hr>
-<!-- <div class="container-fluid overflow-hidden"></div>
+<div class="container-fluid overflow-hidden"></div>
 <div class="row featurette">
   <div class="col-md-7">
-    <p>Page Turner is so much more than a book club, we start the conversation around books, but it always leads to
+    <p class="club-text">Page Turner is so much more than a book club, we start the conversation around books, but it always leads to
       deeper more meaningful connection and provides the foundation for lifelong friendships. Join us and discover a
       wide variety of new books, new authors and new friends. We are delighted to welcome you into Page Turner Book Club!
     </p>
@@ -79,5 +112,6 @@
   <div class="col-md-5">
     <img class="img-fluid openbook equal" src="/static/images/openbook1.jpg" alt="open-book">
   </div>
-</div> -->
+</div>
+<div class="spacer"></div>
 {% endblock %} 

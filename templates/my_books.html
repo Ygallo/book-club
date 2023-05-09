@@ -35,9 +35,9 @@
                             <p class="card-text excerpt-height">{{ book.excerpt }}</p>
                                 <div class="read-more"> 
                                     <div class="heart-container quarter"><i class="far fa-heart">  {{ book.number_of_likes}}</i></div>
-                                    <div class="readmore-container quarter"><a href="{% url 'books_detail' book.slug %}" class="btn btn-primary">Read More</a></div>
-                                    <div class="edit-container quarter"><a href="{% url 'edit_book' book.slug %}" class="btn btn-primary">Edit</a></div>
-                                    <div class="delete-container quarter"><a href="{% url 'delete_book' book.slug %}" class="btn btn-primary">Delete</a></div>
+                                    <div class="readmore quarter"><a href="{% url 'books_detail' book.slug %}" class="btn btn-primary">More</a></div>
+                                    <div class="edit-container quarter"><a href="{% url 'edit_book' book.slug %}" class="btn btn-success">Edit</a></div>
+                                    <div class="delete-container quarter"><a href="{% url 'delete_book' book.slug %}" class="btn btn-danger">Delete</a></div>
                                 </div>
                         </div>    
                     </div>

@@ -25,6 +25,11 @@
 .quarter {
     width: 25%;
 }
+
+.readmore { 
+    float: left;
+}
+
 .edit-container {
     float: left;
 }
