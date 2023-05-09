@@ -177,10 +177,10 @@ def index(request):
 
 def detail(request, question_id):
     try:
-        choice = Choice.objects.get(pk=choice_id)
-    except Choice.DoesNotExist:
+        question = Question.objects.get(pk=Question_id)
+    except Question.DoesNotExist:
         raise Http404("Question does not exist")
-    return render(request, 'polls/detail.html', {'choice': choice})
+    return render(request, 'polls/detail.html', {'question': question})
 
 # Get question and display results
 

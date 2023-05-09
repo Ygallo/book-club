@@ -55,6 +55,14 @@
     color: #f2ecce;
     font-size: 15px;
 }
+
+/* Books */
+
+.excerpt-height {
+    max-height: 310px;
+    overflow: hidden;
+}
+
 /* Footer */
 
 footer {

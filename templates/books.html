@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid light-yellow">
     <div class="row">
         <div class="col-12">
             <h1 class="page-title">Books Recommendations</h1>
@@ -10,35 +10,39 @@
     </div>
     <br>
     <!-- Books entries -->
-    <div class="col-12 mt-3 left">
-        <div class="row">
-            {% for book in book_list %}
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    {% if "placeholder" in book.featured_image.url %}
-                    <img src="/static/images/placeholder.png" class="card-img-top" alt="placeholder image">
-                    {% else %}
-                    <img class="card-img-top" src=" {{ book.image.url }}">
-                    {% endif %}
-                    <div class="image-flash">
-                        <p class="author">Author: {{ book.author }}</p>
+   <div class="row row-cols-1 row-cols-md-2 g-4">  
+        {% for book in book_list %}
+        <div class="card-group" >
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% if "placeholder" in book.featured_image.url %}
+                        <img src="/static/images/placeholder.png" class="img-fluid rounded-start" alt="placeholder image">
+                        {% else %}
+                        <img class="card-img-top img-fluid rounded-start" src=" {{ book.image.url }}">
+                        {% endif %}
+                        <div class="image-flash" style="margin:10px;">
+                            <span class="badge rounded-pill bg-primary author">Author: {{ book.author }}</span>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h3 class="card-title">{{ book.title }}</h3>
-                            <p class="card-text">{{ book.excerpt }}</p>
-                            <!-- URL not working-->
-                            <a href="{% url 'books_detail' book.slug %}" class="btn btn-primary">Read More</a>
-                        <br>
-                        <p><i class="far fa-heart">{{ book.number_of_likes}}</i></p>
+
+                    <div class="col-md-8">
+                       
+                        <div class="card-body">
+                            <h3 class="card-title">{{ book.title }}</h3>
+                                    <p class="card-text excerpt-height">{{ book.excerpt }}</p>
+                                   
+                                    <a href="{% url 'books_detail' book.slug %}" class="btn btn-primary">Read More</a>
+                            <br>
+                            <p><i class="far fa-heart">{{ book.number_of_likes}}</i></p>
+                        </div>    
                     </div>
-                </div>
-                {% if forloop.counter|divisibleby:4 %}
+                </div>     
             </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-            </div>
-        </div>   
+        </div>     
+        {% endfor %}
+   </div>
+            
         <!-- Pagination from Django blog -->
         {% if is_paginated %}
         <nav aria-label="Page navigation">
@@ -53,5 +57,6 @@
             </ul>
         </nav>
         {% endif %}
+     <!-- </div>     -->
 </div>
 {% endblock %}
