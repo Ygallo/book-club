@@ -51,9 +51,9 @@ class BookDetail(View):
         )
 
     def post(self, request, slug):
-        queryset = Book.objects.all
+        queryset = Book.objects.all()
         book = get_object_or_404(queryset, slug=slug)
-        comments = book.comments.filter(approved=True).order_by(created_on)
+        comments = book.comments.filter(approved=True).order_by('created_on')
         liked = False
         if book.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -62,7 +62,7 @@ class BookDetail(View):
 
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
-            comment_form.instance.name = request.user.name
+            comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.book = book
             comment.save()
@@ -73,7 +73,7 @@ class BookDetail(View):
             request,
             "books_detail.html",
             {
-                "book": books,
+                "book": book,
                 "comments": comments,
                 "commented": True,
                 "liked": liked,
@@ -130,6 +130,29 @@ class DeleteBook(generic.DeleteView):
     success_url = reverse_lazy('my_books')
 
 
+class BookLike(View):
+    
+    def post(self, request, slug):
+        book = get_object_or_404(Book, slug=slug)
+        if book.likes.filter(id=request.user.id).exists():
+            book.likes.remove(request.user)
+        else:
+            book.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('books_detail', args=[slug]))
+    
+
+class BookVote(View):
+    
+    def post(self, request, slug):
+        book = get_object_or_404(Book, slug=slug)
+        if book.vote.filter(id=request.user.id).exists():
+            book.vote.remove(request.user)
+        else:
+            book.vote.add(request.user)
+
+        return HttpResponseRedirect(reverse('books_detail', args=[slug]))
+
 # class PollVote(generic.ListView):
 #     """
 #     View to allow users to vote on a book poll
@@ -143,11 +166,6 @@ class DeleteBook(generic.DeleteView):
 
 
 # Get questions and display them
-def Test(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list}
-    return render(request, 'test.html', context)
-
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
@@ -159,10 +177,10 @@ def index(request):
 
 def detail(request, question_id):
     try:
-        question = Question.objects.get(pk=question_id)
-    except Question.DoesNotExist:
+        choice = Choice.objects.get(pk=choice_id)
+    except Choice.DoesNotExist:
         raise Http404("Question does not exist")
-    return render(request, 'polls/detail.html', {'question': question})
+    return render(request, 'polls/detail.html', {'choice': choice})
 
 # Get question and display results
 

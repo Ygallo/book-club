@@ -44,6 +44,7 @@ class Book(models.Model):
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='book_likes', blank=True)
+    votes = models.ManyToManyField(User, related_name='votes', blank=True)
 
     class Meta:
         ordering = ['title']
@@ -72,6 +73,7 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
+
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
@@ -82,9 +84,9 @@ class Question(models.Model):
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
+    choice_text = models.ManyToManyField(Book, related_name='poll', blank=False)
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.choice_text
+        return f"{self.choice_text}"
 

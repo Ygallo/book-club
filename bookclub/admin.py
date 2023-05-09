@@ -24,7 +24,7 @@ class CommentAdmin(SummernoteModelAdmin):
     actions = ['approved_comment']
 
     def approved_comment(self, request, queryset):
-        queryset.update(approve=True)
+        queryset.update(approved=True)
 
 
 class ChoiceInLine(admin.TabularInline):
@@ -35,10 +35,10 @@ class ChoiceInLine(admin.TabularInline):
 @admin.register(Question)
 class PollAdmin(SummernoteModelAdmin):
 
-    # list_display = ('poll_title', 'start_date', 'end_date')
-    # list_filter = ('poll_title', )
-    fieldsets = [(None, {'fields': ['question_text']}), ('Date Information', {
-        'fields': ['pub_date'], 'classes': ['collapse']}), ]
+    list_display = ('question_text', 'pub_date')
+    list_filter = ('question_text', )
+    # fieldsets = [(None, {'fields': ['question_text']}), ('Date Information', {
+    #     'fields': ['pub_date'], }), ]
     inlines = [ChoiceInLine]
 
 

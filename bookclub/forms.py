@@ -18,7 +18,8 @@ class BookForm(forms.ModelForm):
             'genre_choices',
             'image',
             'description',
-            'image'
+            'image',
+            'votes',
         ]
 
 
