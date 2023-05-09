@@ -30,18 +30,21 @@
                        
                         <div class="card-body">
                             <h3 class="card-title">{{ book.title }}</h3>
-                                    <p class="card-text excerpt-height">{{ book.excerpt }}</p>
-                                   
-                                    <a href="{% url 'books_detail' book.slug %}" class="btn btn-primary">Read More</a>
-                            <br>
-                            <p><i class="far fa-heart">{{ book.number_of_likes}}</i></p>
+                            <p class="card-text excerpt-height">{{ book.excerpt }}</p>
+                                <div class="read-more"> 
+                                    <div class="heart-container"><i class="far fa-heart">  {{ book.number_of_likes}}</i></div>
+                                    <div class="readmore-container"><a href="{% url 'books_detail' book.slug %}" class="btn btn-primary">Read More</a></div>
+                                </div>
                         </div>    
                     </div>
                 </div>     
             </div>
         </div>     
         {% endfor %}
+        <div class="spacer"></div>
+
    </div>
+   
             
         <!-- Pagination from Django blog -->
         {% if is_paginated %}
