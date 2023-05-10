@@ -44,3 +44,47 @@
 .club-text {
     text-align: center;
 }
+
+/* Index.html - Section Featured Image*/
+.light-yellow {
+    background-color: #f2ecce;
+}
+.openbook {
+    width: 500;
+    height: 500;
+
+}
+
+.love-book {
+    font-family: 'open sans', 'sans serif';
+    font-weight: 600;
+    font-style: italic;
+    color: #2e3a42;
+}
+
+.equal {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.club-text {
+    text-align: center;
+}
+
+.carousel-caption {
+    top: 0;
+    bottom: auto;
+    background-color:hsla(0, 0%, 9%, 0.3);
+}
+
+.circle-singleline {
+    margin: 20px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;    
+      background: #808080;
+      color: #fff;
+  }

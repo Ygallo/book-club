@@ -36,6 +36,12 @@
     text-align: center;
 }
 
+.carousel-caption {
+    top: 0;
+    bottom: auto;
+    background-color:rgb(2, 2, 2);opacity:0.6;
+}
+
 /*.featurette-divider {
     
 }*/
