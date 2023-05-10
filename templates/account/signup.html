@@ -5,27 +5,31 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="container-flex light-yellow">
-    <div class="row justify-content-center">
-        <div class="page title col-11 col-md-6 col-lg-4 mt-3 mb-3">
-            <h2>{% trans "Sign Up" %}</h2>
+<div class="card  justify-content-center" style="max-width: 800px; margin: 20px auto;">
+    <div class="card-header">
+        {% trans "Sign Up" %}
+    </div>
+    <div class="card-body">
+     
+      <p class="card-text">{% blocktrans %} Do you already have an account? Then please <a
+        class="link" href="{{ login_url }}">sign in</a> instead.{% endblocktrans %}</p>
+        
+        <div class="row justify-content-center">
+            <div class="col">
+                <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <button class="btn btn-account right" type="submit">{% trans "Sign Up" %} &raquo;</button>
+                </form>
+            </div>
+        </div>
 
-            <p>{% blocktrans %} Do you already have an account? Then please <a
-                    class="link" href="{{ login_url }}">sign in</a> instead.{% endblocktrans %}</p>
-        </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-11 col-md-6 col-lg-4 mt-3 mb-3">
-            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <button class="btn btn-account right" type="submit">{% trans "Sign Up" %} &raquo;</button>
-            </form>
-        </div>
-    </div>
+    
 </div>
 
 {% endblock %}

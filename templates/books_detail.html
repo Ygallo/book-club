@@ -3,70 +3,70 @@
 
 {% load crispy_forms_tags %}
 
-<div class="masthead">
-    <div class="container">
+<div class="card-group" >
+    <div class="card">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                
-                <h1 class="book-title">{{ book.title }}</h1>
-                
-                <p class="book-author">{{ book.author }} | {{ book.created_on }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                
-                {% if "placeholder" in book.image.url %}
-                <img src="/static/images/placeholder.png" width="100%">
+            <div class="col-md-4">
+                {% if "placeholder" in book.featured_image.url %}
+                <img src="/static/images/placeholder.png" class="img-fluid rounded-start" alt="placeholder image">
                 {% else %}
-                <img src=" {{ book.image.url }}" width="100%">
+                <img class="card-img-top img-fluid rounded-start" src=" {{ book.image.url }}">
                 {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-               
-                <p class="card-text ">
-                    {{ book.description | safe }}
-                </p>
-                <div class="row">
-
-                    <div class="col-1">
-                        <strong>
-                            {% if user.is_authenticated %}
-                            <form class="d-inline" action="{% url 'book_like' book.slug %}" method="POST">
-                                {% csrf_token %}
-                                {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{book.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
-                                {% else %}
-                                <button type="submit" name="blogpost_id" value="{{book.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
-                                {% endif %}
-                            </form>
-                            {% else %}
-                            <span class="text-secondary"><i class="far fa-heart"></i></span>
-                            {% endif %}
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <span class="text-secondary">{{ book.number_of_likes }} </span>
-                        </strong>
-                    </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            {{ total_comments }}</strong>
-                        {% endwith %}
+                <div class="col-pill">
+                    <div class="image-flash" style="margin:10px;">
+                        <span class="badge rounded-pill bg-primary author">Author: {{ book.author }}</span>
                     </div>
                 </div>
+
+                
+
+
             </div>
-        </div>
+
+            <div class="col-md-8">
+               
+                <div class="card-body">
+                    <h3 class="card-title">{{ book.title }}</h3>
+                    <p class="card-text">{{ book.description }}</p>
+                        <div class="read-more"> 
+                            
+                            <a href="{% url 'books_detail' book.slug %}" class="btn btn-primary">Read More</a>
+                        </div>
+                        <div class="col-heart">
+                            <strong>
+                                {% if user.is_authenticated %}
+                                <form class="d-inline" action="{% url 'book_like' book.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    {% if liked %}
+                                    <button type="submit" name="blogpost_id" value="{{book.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                    {% else %}
+                                    <button type="submit" name="blogpost_id" value="{{book.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                    {% endif %}
+                                </form>
+                                {% else %}
+                                <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                {% endif %}
+                            <!-- The number of likes goes before the closing strong tag -->
+                            <span class="text-secondary">{{ book.number_of_likes }} </span>
+                            </strong>
+                        </div>
+        
+                        <div class="col-comments">
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                                {{ total_comments }}</strong>
+                            {% endwith %}
+                        </div>
+                </div>    
+            </div>
+        </div>     
     </div>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
+</div>     
+
+
+
+<div class="container">                     
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Comments:</h3>
@@ -102,7 +102,7 @@
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit", class="btn btn-signup btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                 {% endif%}
                 {% endif%}

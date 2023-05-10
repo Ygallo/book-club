@@ -7,20 +7,16 @@
 
 {% block content %}
 
-<div class="container-flex light-yellow">
-  <div class="row justify-content-center">
-    <div class="col-11 col-md-6 col-lg-4 mt-3 mb-3">
-
-      <h1>{% trans "Log In" %}</h1>
-
-
-        <p>{% blocktrans %}Welcome to Page Turner Book Club. If you want to join our monthly discussions, and do not have an account yet,
-        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-    
-    </div>
+<div class="card justify-content-center" style="max-width: 800px; margin: 20px auto;">
+  <div class="card-header">
+    {% trans "Log In" %}
   </div>
-  <div class="row justify-content-center">
-    <div class="col-11 col-md-6 col-lg-4 mt-3 mb-3">
+  <div class="card-body">
+   
+    <p>{% blocktrans %}Welcome to Page Turner Book Club. If you want to join our monthly discussions, and do not have an account yet,
+      <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+
+      <div class="col">
    
 
         <form class="login" method="POST" action="{% url 'account_login' %}">

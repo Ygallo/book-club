@@ -19,7 +19,6 @@ class BookForm(forms.ModelForm):
             'image',
             'description',
             'image',
-            'votes',
         ]
 
 

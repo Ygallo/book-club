@@ -9,6 +9,19 @@
     color: #f2ecce;
 }
 
+.nav-link:hover, .navbar-brand:hover {
+    color: #eb6162;
+}
+
+.dropdown-menu {
+    background-color: #2e3a42;
+}
+
+.logout, .show {
+    color: #eb6162;
+}
+
+
 
 /* Index.html - Section Featured Image*/
 .light-yellow {
@@ -42,9 +55,26 @@
     background-color:rgb(2, 2, 2);opacity:0.6;
 }
 
-/*.featurette-divider {
-    
-}*/
+.pink {
+    background-color: #eb6162;
+}
+
+.circle-singleline {
+    margin: 20px auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;    
+    background: rgba(33, 37, 41, 0.75);
+    color: #fff;
+}
+
+.home-icons{
+  margin-top: 40px;
+}
+
 
 /* Index.html - Section  Join*/
 
@@ -110,6 +140,18 @@
 .spacer {
     height: 40px;
 }
+
+.club-text {
+    text-align: center;
+}
+
+/* books_deatils.html*/
+.col-heart, .col-comments{
+    width: 50%;
+    margin: 20px auto;
+    float: left;
+}
+
 /* Footer */
 
 footer {
@@ -133,3 +175,22 @@ li i{
     color: #f2ecce;
 }
 
+
+/* sign up */
+#id_username,#id_email, #id_password1,#id_password2,#id_login,#id_password{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

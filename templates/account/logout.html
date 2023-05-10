@@ -5,16 +5,15 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<div class="container-flex light-yellow">
-    <div class="row justify-content-center">
-        <div class="col-11 col-md-6 col-lg-4 mt-3 mb-3">
-            <h2>{% trans "Sign Out" %}</h2>
 
-            <p>{% trans 'Are you sure you want to leave?' %}</p>
-        </div>
+<div class="card justify-content-center" style="max-width: 800px; margin: 20px auto;">
+    <div class="card-header">
+        {% trans "Sign Out" %}
     </div>
-    <div class="row justify-content-center">
-        <div class="col-11 col-md-6 col-lg-4 mt-3 mb-3">
+    <div class="card-body ">
+      
+        <p class="card-text">{% trans 'Are you sure you want to leave?' %}</p>
+        <div class="col">
 
             <form method="post" action="{% url 'account_logout' %}">
                 {% csrf_token %}
@@ -25,5 +24,6 @@
             </form>
         </div>
     </div>
+
 </div>
 {% endblock %}

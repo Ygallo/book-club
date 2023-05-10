@@ -3,20 +3,27 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container-fluid light-yellow">
-    <h2 class="page-title">Add a Book to the Club</h2>
-    <hr>
-    <br>
-    <div class="row justify-content-center">
-        <div class="col-11 col-md-6 col-lg-4 mt-3 mb-3">
-            {% if user.is_authenticated %}
-            <form method="post"style="margin-top: 1.3em;">
-                {{ form | crispy }}
-                {% csrf_token %}
-                <button type="submit" class="btn btn-signup btn-account">Submit</button>
-            </form>
-            {% endif %}
-        </div>
+<div class="card justify-content-center" style="max-width: 800px; margin: 20px auto;">
+    <div class="card-header">
+      Suggest a Book
     </div>
+        <div class="card-body">
+        <h5 class="card-title">Add a Book to the Club</h5>
+        <p class="card-text">Here you can suggest a book you like to the club.</p>
+        
+            <div class="col">
+                {% if user.is_authenticated %}
+                <form method="post"style="margin-top: 1.3em;">
+                    {{ form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-account">Submit</button>
+                </form>
+                {% endif %}
+            </div>
+        
+        </div>
 </div>
+
+
+
 {% endblock %}
