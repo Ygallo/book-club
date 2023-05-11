@@ -15,7 +15,7 @@
 
                 <div class="col-pill">
                     <div class="image-flash" style="margin:10px;">
-                        <span class="badge rounded-pill bg-primary author">Author: {{ book.author }}</span>
+                        <span class="badge rounded-pill author">Author: {{ book.author }}</span>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                     <p class="card-text">{{ book.description }}</p>
                         <div class="read-more"> 
                             
-                            <a href="{% url 'books_detail' book.slug %}" class="btn btn-primary">Read More</a>
+                            <a href="{% url 'books_detail' book.slug %}" class="btn btn-readmore">Read More</a>
                         </div>
                         <div class="col-heart">
                             <strong>
@@ -39,9 +39,9 @@
                                 <form class="d-inline" action="{% url 'book_like' book.slug %}" method="POST">
                                     {% csrf_token %}
                                     {% if liked %}
-                                    <button type="submit" name="blogpost_id" value="{{book.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                    <button type="submit" name="blogpost_id" value="{{book.slug}}" class="btn-like"><i class="fas fa-heart pink"></i></button>
                                     {% else %}
-                                    <button type="submit" name="blogpost_id" value="{{book.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                    <button type="submit" name="blogpost_id" value="{{book.slug}}" class="btn-like"><i class="far fa-heart pink"></i></button>
                                     {% endif %}
                                 </form>
                                 {% else %}

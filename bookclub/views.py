@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Book, Question_Poll, Choice
+from .models import Book, Question, Choice
 from .forms import CommentForm, BookForm
 from django.template import loader
 from django.urls import reverse_lazy
@@ -30,7 +30,7 @@ class BookList(generic.ListView):
     model = Book
     queryset = Book.objects.order_by('title')
     template_name = "books.html"
-    paginate_by = 8
+    paginate_by = 6
 
 
 class BookDetail(View):
@@ -175,19 +175,24 @@ class BookVote(View):
 # Get questions and display them
 
 def index(request):
-    latest_question_list = Question_Poll.objects.order_by('-poll_pub_date')[:5]
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
 
 # Show specific question and choices
 
 
-def detail(request, question_id):
+def detail(request, question_id,slug):
+    print("id:", question_id)
     try:
-        question = Question_Poll.objects.get(pk = question_id)
-    except Question_Poll.DoesNotExist:
+        question = Question.objects.get(pk = question_id)
+        queryset = Book.objects.all()
+        book = get_object_or_404(queryset, slug=slug)
+        
+
+    except Question.DoesNotExist:
         raise Http404("Question does not exist")
-    return render(request, 'polls/detail.html', {'question': question})
+    return render(request, 'polls/detail.html', {'question': question,'book':book})
  
 
 
@@ -197,7 +202,7 @@ def detail(request, question_id):
 
 def results(request, question_id):
     
-    question = get_object_or_404(Question_Poll, pk=question_id)
+    question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
 
 # Vote for a question choice
@@ -205,10 +210,10 @@ def results(request, question_id):
 
 def vote(request, question_id):
     # print(request.POST['choice'])
-    question = get_object_or_404(Question_Poll, pk=question_id)
+    question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
-    except (KeyError, Choice_Poll.DoesNotExist):
+    except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
             'question': question,

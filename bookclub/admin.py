@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book, Comment, Question_Poll, Choice
+from .models import Book, Comment, Question, Choice
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -38,9 +38,9 @@ class ChoiceInLine(admin.TabularInline):
 
 class QuestionAdmin(admin.ModelAdmin):
 
-    fieldsets = [(None, {'fields': ['poll_question_text']}), ('Date Information', {
-        'fields': ['poll_pub_date'], 'classes': ['collapse']}), ]
+    fieldsets = [(None, {'fields': ['question_text']}), ('Date Information', {
+        'fields': ['pub_date'], 'classes': ['collapse']}), ]
     inlines = [ChoiceInLine]
 
 
-admin.site.register(Question_Poll, QuestionAdmin)
+admin.site.register(Question, QuestionAdmin)

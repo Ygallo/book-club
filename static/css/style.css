@@ -56,8 +56,13 @@
     opacity: 0.8;
 }
 
-.pink {
-    background-color: #eb6162;
+.grey {
+    background-color: #2e3a42;
+}
+
+.view-details {
+    background-color: #2e3a42;
+    color: #eb6162;
 }
 
 .circle-singleline {
@@ -88,7 +93,7 @@
 
 /* Index.html - Section  Join*/
 
-.join-icon {
+.join-icon, .pink {
     color: #eb6162;
 }
 .dark-blue {
@@ -115,11 +120,21 @@
 }
 
 .read-more {
-    width: 120%;
+    width: 60%;
     height: 45px;
     bottom: 0;
     position: absolute;
     
+}
+
+.author {
+    background-color: #eb6162;
+    
+}
+
+.btn-readmore {
+    background-color: #2e3a42;
+    color: #f2ecce;
 }
 
 .heart-container {
@@ -161,11 +176,17 @@
     text-align: center;
 }
 
-/* books_deatils.html*/
+/* books_details.html*/
 .col-heart, .col-comments{
     width: 50%;
     margin: 20px auto;
     float: left;
+}
+
+/*  Poll details.html*/
+
+.more{
+
 }
 
 /* Footer */

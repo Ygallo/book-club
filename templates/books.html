@@ -22,7 +22,7 @@
                         <img class="card-img-top img-fluid rounded-start" src=" {{ book.image.url }}">
                         {% endif %}
                         <div class="image-flash" style="margin:10px;">
-                            <span class="badge rounded-pill bg-primary author">Author: {{ book.author }}</span>
+                            <span class="badge rounded-pill author">Author: {{ book.author }}</span>
                         </div>
                     </div>
 
@@ -32,15 +32,17 @@
                             <h3 class="card-title">{{ book.title }}</h3>
                             <p class="card-text excerpt-height">{{ book.excerpt }}</p>
                                 <div class="read-more"> 
-                                    <div class="heart-container"><i class="far fa-heart">  {{ book.number_of_likes}}</i></div>
-                                    <div class="readmore-container"><a href="{% url 'books_detail' book.slug %}" class="btn btn-primary">Read More</a></div>
+                                    <div class="heart-container"><i class="far fa-heart pink">  {{ book.number_of_likes}}</i></div>
+                                    <div class="readmore-container"><a href="{% url 'books_detail' book.slug %}" class="btn btn-readmore">Read More</a></div>
                                 </div>
                         </div>    
                     </div>
                 </div>     
             </div>
-        </div>     
+            
+        </div>
         {% endfor %}
+        
         <div class="spacer"></div>
 
    </div>
