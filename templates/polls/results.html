@@ -3,14 +3,14 @@
 
 <div class="card justify-content-center" style="max-width: 800px; margin: 20px auto;">
 	<div class="card-header">
-		{{ question.question_text }}
+		{{ question.poll_question_text }}
 	</div>
 	<div class="card-body">
 		<ul>
 			{% for choice in question.choice_set.all %}
 			<li class ="list-group-item">
-				{{ choice.choice_text }} <span class ="badge bg-secondary">{{ choice.votes }}
-					vote{{ choice.votes | pluralize }}</span>
+				{{ choice.poll_choice_text }} <span class ="badge bg-secondary">{{ choice.poll_votes }}
+					vote{{ choice.poll_votes | pluralize }}</span>
 			</li>
 			{% endfor %}
 	</ul>
