@@ -50,9 +50,10 @@
 }
 
 .carousel-caption {
-    top: 0;
+    top: 25%;
     bottom: auto;
-    background-color:rgb(2, 2, 2);opacity:0.6;
+    background-color: rgb(2, 2, 2);
+    opacity: 0.8;
 }
 
 .pink {
@@ -75,6 +76,15 @@
   margin-top: 40px;
 }
 
+/* Index.html - featureate section*/
+
+.feat-padding{
+    padding-top: 40px;
+}
+
+.white{
+    color: #fff;
+}
 
 /* Index.html - Section  Join*/
 
@@ -105,20 +115,26 @@
 }
 
 .read-more {
-    width: 100%;
-    height: 40px;
+    width: 120%;
+    height: 45px;
+    bottom: 0;
+    position: absolute;
+    
 }
 
 .heart-container {
-    width: 50%;
-    text-align: left;
+    width: 20%;
+    height: 17px;
+    margin-top: 4px;
+    /* text-align: left; */
     float: left;
 }
+
 
 .readmore-container {
     width: 50%;
     text-align: right;
-    float: left;
+    
 }
 
 .quarter {

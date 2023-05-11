@@ -1,20 +1,26 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<h1 class ="text-center mb-3">Poll Questions</h1>
-{% if latest_question_list %}
-{% for question in latest_question_list %}
-<div class ="card-mb-3">
-    <div class ="card-body">
-        <p class ="lead">{{ question.question_text }}</p>
- 
-        <a href ="{% url 'detail' question.id %}" class ="btn btn-primary btn-sm">Vote Now</a>
+<div class="card justify-content-center" style="max-width: 800px; margin: 20px auto;">
+    <div class="card-header">
+        Poll Questions
+    </div>
+    
+    <div class="card-body">
+       <p class="card-text">
+        {% if latest_question_list %}
+        {% for question in latest_question_list %}
+        
+        <h5 class ="">{{ question.question_text }}</h5>
+         <a href ="{% url 'detail' question.id %}" class ="btn btn-primary btn-sm">Vote Now</a>
         <a href ="{% url 'results' question.id %}" class ="btn btn-secondary btn-sm">Results</a>
+      
+        <hr class="featurette-divider">
+        {% endfor %}
+        {% else %}
     </div>
 </div>
-{% endfor %}
-{% else %}
- 
+
 <p>No polls available</p>
  
 {% endif %}

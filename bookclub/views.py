@@ -9,6 +9,13 @@ from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 
 
+class handler400(generic.ListView):
+    model = Book
+    queryset = Book.objects.order_by('title')
+    template_name = "404.html"
+    paginate_by = 8
+
+
 class Home(generic.TemplateView):
     """
     View to display the home page
@@ -176,11 +183,12 @@ def index(request):
 
 
 def detail(request, question_id):
-    try:
-        question = Question.objects.get(pk=Question_id)
-    except Question.DoesNotExist:
-        raise Http404("Question does not exist")
-    return render(request, 'polls/detail.html', {'question': question})
+    print('test')
+#     try:
+#         question = Question.objects.get(pk=Question_id)
+#     except Question.DoesNotExist:
+#        # raise Http404("Question does not exist")
+#     return render(request, 'polls/detail.html', {'question': question})
 
 # Get question and display results
 
