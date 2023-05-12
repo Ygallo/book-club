@@ -1,5 +1,6 @@
 from .models import Comment, Book
 from django import forms
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 
 class CommentForm(forms.ModelForm):
@@ -20,6 +21,10 @@ class BookForm(forms.ModelForm):
             'description',
             'image',
         ]
+        widgets = {
+            'description': SummernoteWidget(),
+        }
+
 
 
 # class PollForm(forms.ModelForm):

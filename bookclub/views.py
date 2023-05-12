@@ -138,7 +138,7 @@ class DeleteBook(generic.DeleteView):
 
 
 class BookLike(View):
-    
+
     def post(self, request, slug):
         book = get_object_or_404(Book, slug=slug)
         if book.likes.filter(id=request.user.id).exists():
@@ -147,10 +147,10 @@ class BookLike(View):
             book.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('books_detail', args=[slug]))
-    
+
 
 class BookVote(View):
-    
+
     def post(self, request, slug):
         book = get_object_or_404(Book, slug=slug)
         if book.vote.filter(id=request.user.id).exists():
@@ -174,7 +174,7 @@ class BookVote(View):
 
 # Get lastest question and display it
 
-def index(request):
+def poll(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:1]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
@@ -183,25 +183,19 @@ def index(request):
 
 
 def detail(request, question_id):
-    print("id:", question_id)
+
     try:
         question = Question.objects.get(pk=question_id)
-        # queryset = Book.objects.all()
-        # book = get_object_or_404(queryset, slug=slug)
-        book = "test"      
 
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
-    return render(request, 'polls/detail.html', {'question': question,'book':book})
- 
+    return render(request, 'polls/detail.html', {'question': question})
 
 
 # Get question and display results
- 
-
 
 def results(request, question_id):
-    
+
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
 
@@ -209,8 +203,17 @@ def results(request, question_id):
 
 
 def vote(request, question_id):
-    # print(request.POST['choice'])
     question = get_object_or_404(Question, pk=question_id)
+
+    # Check if the user has already voted for this question
+    if question.choice_set.filter(voter=request.user).exists():
+
+        # If the user has already voted, display an error message
+        return render(request, 'polls/detail.html', {
+            'question': question,
+            'error_message': "You have already voted on this question.",
+        })
+
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
@@ -222,7 +225,9 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
+        # Create a new Vote object to associate with the user and the question
+        vote = Choice(question=question, choice_text=selected_choice,
+                     voter=request.user)
+        vote.save()
+
         return HttpResponseRedirect(reverse('results', args=(question.id, )))

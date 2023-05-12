@@ -17,11 +17,7 @@
                     <div class="image-flash" style="margin:10px;">
                         <span class="badge rounded-pill author">Author: {{ book.author }}</span>
                     </div>
-                </div>
-
-                
-
-
+                </div> 
             </div>
 
             <div class="col-md-8">
@@ -45,10 +41,10 @@
                                     {% endif %}
                                 </form>
                                 {% else %}
-                                <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                <span class="pink"><i class="far fa-heart"></i></span>
                                 {% endif %}
-                            <!-- The number of likes goes before the closing strong tag -->
-                            <span class="text-secondary">{{ book.number_of_likes }} </span>
+                            
+                            <span class="pink">{{ book.number_of_likes }} </span>
                             </strong>
                         </div>
         
@@ -64,14 +60,12 @@
     </div>
 </div>     
 
-
-
+<!-- Comments -->
 <div class="container">                     
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Comments:</h3>
             <div class="card-body">
-                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">     
@@ -85,7 +79,7 @@
                 {% endfor %}
             </div>
         </div>
-          <!-- Comments-->
+        
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
               
