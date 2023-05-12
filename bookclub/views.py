@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Book, Question, Choice
+from .models import Book, Question, Choice, Vote
 from .forms import CommentForm, BookForm
 from django.template import loader
 from django.urls import reverse_lazy
@@ -206,28 +206,31 @@ def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
 
     # Check if the user has already voted for this question
-    if question.choice_set.filter(voter=request.user).exists():
+    for choice in question.choice_set.all():
+        if choice.vote_set.filter(user=request.user).exists():
+
+        #if question.choice_set.filter(voter=request.user).exists():
 
         # If the user has already voted, display an error message
-        return render(request, 'polls/detail.html', {
-            'question': question,
-            'error_message': "You have already voted on this question.",
-        })
+            return render(request, 'polls/detail.html', {
+                'question': question,
+                'error_message': "You have already voted on this question.",
+            })
 
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
+       
+        # Create a new Vote object to associate with the user and the question
+        vote = Vote(user=request.user, choice=selected_choice)
+        vote.save()
+
+        return HttpResponseRedirect(reverse('results', args=(question.id, )))
+
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
         })
-    else:
-        selected_choice.votes += 1
-        selected_choice.save()
-        # Create a new Vote object to associate with the user and the question
-        vote = Choice(question=question, choice_text=selected_choice,
-                     voter=request.user)
-        vote.save()
-
-        return HttpResponseRedirect(reverse('results', args=(question.id, )))
+    
+        

@@ -9,8 +9,8 @@
 		<ul>
 			{% for choice in question.choice_set.all %}
 			<li class ="list-group-item">
-				{{ choice.choice_text }} <span class ="badge bg-secondary">{{ choice.votes }}
-					vote{{ choice.votes | pluralize }}</span>
+				{{ choice.choice_text }} <span class ="badge bg-secondary">{{ choice.vote_set.count }}
+					vote{{ choice.vote_set.count | pluralize }}</span>
 			</li>
 			{% endfor %}
 	</ul>
