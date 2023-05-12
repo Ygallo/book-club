@@ -193,6 +193,11 @@
 
 footer {
     background-color:#d87f53;
+    /* bottom: 0;
+    position: absolute; */
+    width: 100%;
+    margin: 20px 0 0 0 ;
+    padding: 25px;   
 }
 
 li i{

@@ -28,7 +28,7 @@
 
     <title>Page Turner Book Club</title>
 </head>
-<body class="light-yellow">
+<body class="light-yellow d-flex flex-column min-vh-100">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg blue">
@@ -81,6 +81,22 @@
       </nav>
 
     <!-- End Navigation -->
+
+        <!-- Code from CI Blog project -->
+        <div class="container">
+          <div class="row">
+              <div class="col-md-8 offset-md-2">
+                  {% for message in messages %}
+                  <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                      {{ message | safe }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  {% endfor %}
+              </div>
+          </div>
+      </div>
     
     <main class="flex-shrink-0 main-bg">
       {% block content %}
@@ -91,7 +107,7 @@
    
 
     <!-- Footer -->
-    <footer class="nav justify-content-center border-bottom pb-3 mb-3">
+    <footer class="nav justify-content-center border-bottom mt-auto">
       <div class="container">
         <ul class="social-networks nav justify-content-center list-unstyled d-flex">
           <li>

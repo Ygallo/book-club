@@ -172,23 +172,23 @@ class BookVote(View):
 #     success_url = reverse_lazy('books.html')
 
 
-# Get questions and display them
+# Get lastest question and display it
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    latest_question_list = Question.objects.order_by('-pub_date')[:1]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
 
 # Show specific question and choices
 
 
-def detail(request, question_id,slug):
+def detail(request, question_id):
     print("id:", question_id)
     try:
-        question = Question.objects.get(pk = question_id)
-        queryset = Book.objects.all()
-        book = get_object_or_404(queryset, slug=slug)
-        
+        question = Question.objects.get(pk=question_id)
+        # queryset = Book.objects.all()
+        # book = get_object_or_404(queryset, slug=slug)
+        book = "test"      
 
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
