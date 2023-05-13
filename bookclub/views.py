@@ -138,6 +138,9 @@ class DeleteBook(generic.DeleteView):
 
 
 class BookLike(View):
+    """
+    View that allows users to like a book in club
+    """
 
     def post(self, request, slug):
         book = get_object_or_404(Book, slug=slug)
@@ -150,6 +153,9 @@ class BookLike(View):
 
 
 class BookVote(View):
+    """
+    View that allows users to vote on a book
+    """
 
     def post(self, request, slug):
         book = get_object_or_404(Book, slug=slug)
@@ -160,17 +166,6 @@ class BookVote(View):
 
         return HttpResponseRedirect(reverse('books_detail', args=[slug]))
 
-# class PollVote(generic.ListView):
-#     """
-#     View to allow users to vote on a book poll
-#     """
-#     model = PollChoice
-#     template_name = 'poll.html'
-#     queryset = Book.objects.order_by('title')
-#     fields = '__all__'
-#     success_message = "Thank you for your vote!"
-#     success_url = reverse_lazy('books.html')
-
 
 # Get lastest question and display it
 
@@ -179,9 +174,8 @@ def poll(request):
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
 
+
 # Show specific question and choices
-
-
 def detail(request, question_id):
 
     try:
@@ -193,15 +187,13 @@ def detail(request, question_id):
 
 
 # Get question and display results
-
 def results(request, question_id):
 
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
 
+
 # Vote for a question choice
-
-
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
 
@@ -209,9 +201,7 @@ def vote(request, question_id):
     for choice in question.choice_set.all():
         if choice.vote_set.filter(user=request.user).exists():
 
-        #if question.choice_set.filter(voter=request.user).exists():
-
-        # If the user has already voted, display an error message
+            # If the user has already voted, display an error message
             return render(request, 'polls/detail.html', {
                 'question': question,
                 'error_message': "You have already voted on this question.",
@@ -219,7 +209,6 @@ def vote(request, question_id):
 
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
-       
         # Create a new Vote object to associate with the user and the question
         vote = Vote(user=request.user, choice=selected_choice)
         vote.save()
@@ -232,5 +221,3 @@ def vote(request, question_id):
             'question': question,
             'error_message': "You didn't select a choice.",
         })
-    
-        

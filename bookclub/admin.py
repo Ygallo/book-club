@@ -30,6 +30,7 @@ class CommentAdmin(SummernoteModelAdmin):
 admin.site.register(Vote)
 admin.site.register(Choice)
 
+
 class ChoiceInLine(admin.TabularInline):
     model = Choice
     extra = 3

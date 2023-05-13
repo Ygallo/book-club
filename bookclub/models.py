@@ -60,7 +60,7 @@ class Book(models.Model):
 class Comment(models.Model):
 
     book = models.ForeignKey(Book, on_delete=models.CASCADE,
-            related_name="comments")
+                             related_name="comments")
     name = models.CharField(max_length=75, default='Blank')
     email = models.EmailField()
     body = models.TextField()
@@ -92,5 +92,4 @@ class Choice(models.Model):
 
 class Vote (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    choice = models.ForeignKey(Choice, on_delete=models.CASCADE)  
-    
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
