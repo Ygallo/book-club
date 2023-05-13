@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book, Comment, Question, Choice, Vote
+from .models import Book, Comment, Question, Choice, Vote, BookOfTheMonth
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -29,7 +29,7 @@ class CommentAdmin(SummernoteModelAdmin):
 
 admin.site.register(Vote)
 admin.site.register(Choice)
-
+admin.site.register(BookOfTheMonth)
 
 class ChoiceInLine(admin.TabularInline):
     model = Choice

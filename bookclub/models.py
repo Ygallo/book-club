@@ -4,7 +4,6 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
-
 class Book(models.Model):
 
     title = models.CharField(max_length=250, unique=True)
@@ -45,7 +44,7 @@ class Book(models.Model):
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='book_likes', blank=True)
-    votes = models.ManyToManyField(User, related_name='votes', blank=True)
+    
 
     class Meta:
         ordering = ['title']
@@ -84,12 +83,14 @@ class Question(models.Model):
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200, default="empty")
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, default=2)
 
-    def __str__(self):
-        return self.choice_text
-
+ 
 
 class Vote (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
+
+class BookOfTheMonth(models.Model):
+    chosen_book = models.ForeignKey(Book, on_delete=models.CASCADE, default=2)
+    

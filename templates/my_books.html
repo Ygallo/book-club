@@ -18,10 +18,10 @@
             <div class="card">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        {% if "placeholder" in book.featured_image.url %}
+                        {% if "placeholder" in book.image.url %}
                         <img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="img-fluid rounded-start" alt="placeholder image">
                         {% else %}
-                        <img class="card-img-top img-fluid rounded-start" src=" {{ book.image.url }}">
+                        <img class="card-img-top img-fluid rounded-start" src=" {{ book.image.url }}" alt="{{ book.title }}">
                         {% endif %}
                         <div class="image-flash" style="margin:10px;">
                             <span class="badge rounded-pill author">Author: {{ book.author }}</span>

@@ -179,8 +179,9 @@ def poll(request):
 def detail(request, question_id):
 
     try:
-        question = Question.objects.get(pk=question_id)
-
+        #question = Question.objects.get(pk=question_id)
+        question = get_object_or_404(Question, pk=question_id)
+        
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
     return render(request, 'polls/detail.html', {'question': question})
@@ -199,6 +200,7 @@ def vote(request, question_id):
 
     # Check if the user has already voted for this question
     for choice in question.choice_set.all():
+       
         if choice.vote_set.filter(user=request.user).exists():
 
             # If the user has already voted, display an error message

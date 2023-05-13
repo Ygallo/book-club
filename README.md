@@ -49,8 +49,29 @@ A visitor of the Page Turner Book Club would be someone who is a an avid reader 
 ### User Stories
 
 #### User Profile
-- As a Site user I can register an Account so that so I can join a book club and connect with other readers.
+- As a User I can register an Account so that so I can join a book club and connect with other readers.
 - As a User, I can log in or log out of my account so that I can have access to member benefits such as comments and votes.
+
+#### User Navigation
+
+- As a User, I can navigate the site intuitively  so that I can find content I am interested in.
+- As a User, I can view a paginated list of books so that I can select a book to read more information about it.
+- As a User, I can click on a book so that I can read the full description, and author and view comments left by other users.
+
+#### Book Management and interaction 
+- As a Site Admin/User I can add new books so that members can always find a book that appeals to them
+- As a Site User I can like or unlike a book so that so that other members can get a sense of whether or not they would enjoy reading the same books.
+- As a Site User I can vote on the book poll so that I can be involved in the monthly discussion.
+
+#### Site Administration
+
+- As a Site Admin I can create, read, update, and delete comments so that manage the content and the website remains safe.
+- As a Site Admin I can moderate comments on the website so that the site remains safe and friendly.
+- As a Site Admin/User I can add new books so that members can always find a book that appeals to them.
+- As a Site Admin I can suggest books for the club to read in a poll so that so that we can continue to explore new topics and genres.
+
+#### User stories for future implementation
+
 
 ## Gitpod Reminders
 

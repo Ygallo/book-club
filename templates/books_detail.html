@@ -10,7 +10,7 @@
                 {% if "placeholder" in book.image.url %}
                 <img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="img-fluid rounded-start" alt="placeholder image">
                 {% else %}
-                <img class="card-img-top img-fluid rounded-start" src=" {{ book.image.url }}">
+                <img class="card-img-top img-fluid rounded-start" src=" {{ book.image.url }}" alt="{{ book.title }}">
                 {% endif %}
 
                 <div class="col-pill">

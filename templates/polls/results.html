@@ -9,7 +9,13 @@
 		<ul>
 			{% for choice in question.choice_set.all %}
 			<li class ="list-group-item">
-				{{ choice.choice_text }} <span class ="badge bg-secondary">{{ choice.vote_set.count }}
+				
+				{% if "placeholder" in choice.book.image.url %}
+				<img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="img-fluid rounded-start" alt="placeholder image">
+				{% else %}
+				<img class="card-img-top img-fluid rounded-start" src=" {{ choice.book.image.url }}" alt="{{ choice.book.title }}" >
+				{% endif %}
+				{{ choice.book }} <span class ="badge bg-secondary">{{ choice.vote_set.count }}
 					vote{{ choice.vote_set.count | pluralize }}</span>
 			</li>
 			{% endfor %}

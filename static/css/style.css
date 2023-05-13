@@ -223,6 +223,19 @@ li i{
         float: right;
     }
 
+    .voting-cont {
+        width: 100%;
+       
+    }
+
+    .vote-submit, .vote-back {
+        width: 50%;
+        float: left;
+    }
+
+    .poll-submit{
+        width: 100px;
+    }
 /* Account Log in, Sign up, Log out  */
 .btn-account {
     background-color: #2e3a42;
