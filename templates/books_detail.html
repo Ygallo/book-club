@@ -2,13 +2,13 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
-
+ <!-- Book details-->
 <div class="card-group" >
     <div class="card">
         <div class="row g-0">
             <div class="col-md-4">
-                {% if "placeholder" in book.featured_image.url %}
-                <img src="/static/images/placeholder.png" class="img-fluid rounded-start" alt="placeholder image">
+                {% if "placeholder" in book.image.url %}
+                <img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="img-fluid rounded-start" alt="placeholder image">
                 {% else %}
                 <img class="card-img-top img-fluid rounded-start" src=" {{ book.image.url }}">
                 {% endif %}
@@ -29,6 +29,7 @@
                             
                             <a href="{% url 'books_detail' book.slug %}" class="btn btn-readmore">Read More</a>
                         </div>
+                         <!-- Book likes -->
                         <div class="col-heart">
                             <strong>
                                 {% if user.is_authenticated %}
@@ -47,7 +48,7 @@
                             <span class="pink">{{ book.number_of_likes }} </span>
                             </strong>
                         </div>
-        
+                        <!-- Book comments -->
                         <div class="col-comments">
                             {% with comments.count as total_comments %}
                             <strong class="text-secondary"><i class="far fa-comments"></i>
