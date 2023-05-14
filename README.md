@@ -72,6 +72,14 @@ A visitor of the Page Turner Book Club would be someone who is a an avid reader 
 
 #### User stories for future implementation
 
+The following user stories were left out of the project due to time constraints and labelled as "Won't Have" on the project board on Github. It is intended for these user stories to be implemented at a later date. 
+
+- As a Site User I can filter books by genre so that I can find the ones I am more interested in.
+- As a Site User I can see a list of upcoming book club meetings and events so that I can plan a reading schedule accordingly.
+
+- As a Site Admin I can schedule and manage events/meetings so that members can easily RSVP and keep track of upcoming events.
+- As a Site Admin I can send out reminders and notifications about upcoming meetings/events so that everyone stays up to date with events/meetings.
+- As a Site Admin I can send an automatic Zoom meeting link to members so that they can easily connect with members on the monthly discussion.
 
 ## Gitpod Reminders
 
