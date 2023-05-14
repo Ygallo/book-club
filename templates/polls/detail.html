@@ -23,14 +23,14 @@
 			<div class="col">
 				<div class="card">
 					{% if "placeholder" in choice.book.image.url %}
-					<img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="card-img-top" alt="placeholder image">
+					<img src="https://res.cloudinary.com/dne60wscn/image/upload/v1684054978/placeholder_pacovf_h61pb2.jpg" class="card-img-top vote-detail-img" alt="placeholder image">
 					{% else %}
-					<img class="card-img-top" src=" {{ choice.book.image.url }}" alt="{{ choice.book.title }}">
+					<img class="card-img-top vote-detail-img" src=" {{ choice.book.image.url }}" alt="{{ choice.book.title }}">
 					{% endif %}
-					<div class="card-body">
-						
+					<div class="card-body">	
 						<h5>{{ choice.book }}</h5>
-						<p class="card-text">{{ choice.book.excerpt }}</p>
+						<span class="badge rounded-pill author">Author: {{ choice.book.author }}</span>
+						<div class="spacer"></div>
 						<input type="radio" name ="choice" class="btn-check" name="options-outlined" id ="choice{{ forloop.counter }}"  value ="{{ choice.id }}" >
 						<label class="btn btn-outline-success" for="choice{{ forloop.counter }}">Vote for this Book</label>
 					</div>

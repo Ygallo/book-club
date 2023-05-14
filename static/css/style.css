@@ -21,16 +21,14 @@
     color: #eb6162;
 }
 
-
-
 /* Index.html - Section Featured Image*/
 .light-yellow {
     background-color: #f2ecce;
 }
+
 .openbook {
     width: 500;
     height: 500;
-
 }
 
 .love-book {
@@ -113,7 +111,6 @@
 
 /* Books */
 
-
 .excerpt-height {
     max-height: 246px;
     overflow: hidden;
@@ -124,12 +121,10 @@
     height: 45px;
     bottom: 0;
     position: absolute;
-    
 }
 
 .author {
     background-color: #eb6162;
-    
 }
 
 .btn-readmore {
@@ -149,7 +144,6 @@
 .readmore-container {
     width: 50%;
     text-align: right;
-    
 }
 
 .quarter {
@@ -165,9 +159,9 @@
 }
 
 .delete-container {
-    float:left;
-    
+    float:left;  
 }
+
 .spacer {
     height: 40px;
 }
@@ -181,12 +175,6 @@
     width: 50%;
     margin: 20px auto;
     float: left;
-}
-
-/*  Poll details.html*/
-
-.more{
-
 }
 
 /* Footer */
@@ -215,33 +203,49 @@ li i{
 .vote {
     width: 15%;
     height: 45px;
-    bottom: 0;
-    
-    }
+    bottom: 0;  
+}
 
-    .back {
-        float: right;
-    }
+.back {
+    float: right;
+}
 
-    .voting-cont {
-        width: 100%;
+.voting-cont {
+    width: 100%;
        
-    }
+}
 
-    .vote-submit, .vote-back {
-        width: 50%;
-        float: left;
-    }
+.vote-detail-img{
+    max-height: 500px;
+}
 
-    .poll-submit{
-        width: 100px;
-    }
+
+.vote-submit, .vote-back {
+    width: 50%;
+    float: left;
+}
+
+.poll-submit{
+    width: 100px;
+}
+
+.voted-cont {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.voted-thumb {
+    max-width: 100px;
+    float: left;
+    margin-right: 10px;
+}
+
 /* Account Log in, Sign up, Log out  */
 .btn-account {
     background-color: #2e3a42;
     color: #f2ecce;
 }
-
 
 /* sign up */
 #id_username,#id_email, #id_password1,#id_password2,#id_login,#id_password{

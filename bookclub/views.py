@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Book, Question, Choice, Vote,BookOfTheMonth
+from .models import Book, Question, Choice, Vote, BookOfTheMonth
 from .forms import CommentForm, BookForm
 from django.template import loader
 from django.urls import reverse_lazy
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
 
@@ -22,19 +24,7 @@ class Home(generic.TemplateView):
     """
     template_name = "index.html"
 
-'''
-def BookList(request):
-    """
-    View to display recommended books
-    """
-   
-    books = Book.objects.order_by('title')
-    paginate_by = 6
-    chosen = BookOfTheMonth.objects.all()
-    context = {'chosen_book': chosen, "book_list": books, " paginate_by":  paginate_by }
-    return render(request, 'books.html', context)
-'''
-       
+
 class BookList(generic.ListView):
     """
     View to display recommended books
@@ -49,7 +39,6 @@ class BookList(generic.ListView):
         context = super(BookList, self).get_context_data(**kwargs)
         context.update({'chosen_book': self.chosen})
         return context
-   
 
 
 class BookDetail(View):
@@ -146,7 +135,7 @@ class EditBook(generic.UpdateView):
     success_url = reverse_lazy('my_books')
 
 
-class DeleteBook(generic.DeleteView):
+class DeleteBook(SuccessMessageMixin, generic.DeleteView):
     """
     View that allows users to delete a book they had add to the club
     """
@@ -195,12 +184,12 @@ def poll(request):
 
 
 # Show specific question and choices
+@login_required(redirect_field_name="account_login")
 def detail(request, question_id):
 
     try:
-        #question = Question.objects.get(pk=question_id)
         question = get_object_or_404(Question, pk=question_id)
-        
+
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
     return render(request, 'polls/detail.html', {'question': question})
@@ -214,12 +203,13 @@ def results(request, question_id):
 
 
 # Vote for a question choice
+@login_required(redirect_field_name="account_login")
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
 
     # Check if the user has already voted for this question
     for choice in question.choice_set.all():
-       
+
         if choice.vote_set.filter(user=request.user).exists():
 
             # If the user has already voted, display an error message

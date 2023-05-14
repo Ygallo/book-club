@@ -8,16 +8,22 @@
 	<div class="card-body">
 		<ul>
 			{% for choice in question.choice_set.all %}
-			<li class ="list-group-item">
-				
-				{% if "placeholder" in choice.book.image.url %}
-				<img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="img-fluid rounded-start" alt="placeholder image">
-				{% else %}
-				<img class="card-img-top img-fluid rounded-start" src=" {{ choice.book.image.url }}" alt="{{ choice.book.title }}" >
-				{% endif %}
-				{{ choice.book }} <span class ="badge bg-secondary">{{ choice.vote_set.count }}
-					vote{{ choice.vote_set.count | pluralize }}</span>
+			<li class ="list-group-item voted-cont">
+				<div class="voted-thumb">
+					{% if "placeholder" in choice.book.image.url %}
+					<img src="https://res.cloudinary.com/dne60wscn/image/upload/v1684054978/placeholder_pacovf_h61pb2.jpg" class="img-fluid rounded-start" alt="placeholder image" >
+					{% else %}
+					<img class="card-img-top img-fluid rounded-start" src=" {{ choice.book.image.url }}" alt="{{ choice.book.title }}" >
+					{% endif %}
+				</div>
+				<div class="voted-book">
+					<div class="voted-title"><strong>{{ choice.book }}</strong></div>
+					<span class="badge rounded-pill author">Author: {{ choice.book.author }}</span>
+					<span class ="badge bg-secondary">{{ choice.vote_set.count }}
+						vote{{ choice.vote_set.count | pluralize }}</span>
+				</div>
 			</li>
+			<div class="spacer"></div>
 			{% endfor %}
 	</ul>
 	<a class ="btn btn-readmore back" href ="{% url 'polls' %}">Back To Polls</a>

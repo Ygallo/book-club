@@ -12,14 +12,14 @@
     <!-- Book of the month -->
     <div>
         {% for chosen in  chosen_book %}
-        <div class="card">
+        <div class="card border-danger">
             <div class="card-header">
                 Book of the Month
               </div>
             <div class="row g-0">
                 <div class="col-md-1">
                     {% if "placeholder" in chosen.chosen_book.image.url %}
-                    <img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="img-fluid rounded-start" alt="placeholder image" style="max-width: 150px;">
+                    <img src="https://res.cloudinary.com/dne60wscn/image/upload/v1684054978/placeholder_pacovf_h61pb2.jpg" class="img-fluid rounded-start" alt="placeholder image" style="max-width: 150px;">
                     {% else %}
                     <img class="card-img-top img-fluid img-thumbnail" src=" {{ chosen.chosen_book.image.url }}" alt="{{ chosen.chosen_book.title }}" style="max-width: 150px;">
                     {% endif %}
@@ -34,11 +34,7 @@
                         <div class="image-flash" style="margin:10px;">
                             <span class="badge rounded-pill author">Author: {{ chosen.chosen_book.author }}</span>
                         </div>
-                        <div class="spacer"></div>
-                            <div class="read-more"> 
-                                <div class="heart-container"><i class="far fa-heart pink">  {{ chosen.chosen_book.number_of_likes}}</i></div>
-                                <div class="readmore-container"><a href="{% url 'books_detail' chosen.chosen_book.slug %}" class="btn btn-readmore">Read More</a></div>
-                            </div>
+                            <div class="readmore-container"><a href="{% url 'books_detail' chosen.chosen_book.slug %}" class="btn btn-readmore">Read More</a></div>
                     </div>    
                 </div>
             </div>     
