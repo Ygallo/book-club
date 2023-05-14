@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Book, Question, Choice, Vote
+from .models import Book, Question, Choice, Vote,BookOfTheMonth
 from .forms import CommentForm, BookForm
 from django.template import loader
 from django.urls import reverse_lazy
@@ -22,15 +22,34 @@ class Home(generic.TemplateView):
     """
     template_name = "index.html"
 
-
+'''
+def BookList(request):
+    """
+    View to display recommended books
+    """
+   
+    books = Book.objects.order_by('title')
+    paginate_by = 6
+    chosen = BookOfTheMonth.objects.all()
+    context = {'chosen_book': chosen, "book_list": books, " paginate_by":  paginate_by }
+    return render(request, 'books.html', context)
+'''
+       
 class BookList(generic.ListView):
     """
     View to display recommended books
     """
+    chosen = BookOfTheMonth.objects.all()
     model = Book
     queryset = Book.objects.order_by('title')
     template_name = "books.html"
     paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super(BookList, self).get_context_data(**kwargs)
+        context.update({'chosen_book': self.chosen})
+        return context
+   
 
 
 class BookDetail(View):

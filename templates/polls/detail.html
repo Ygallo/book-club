@@ -5,52 +5,49 @@
 	<div class="card-header">
 		Book Club Poll
 	</div>
+	<!-- Monthly poll-->
 	<div class="card-body"> 
 		<p>Please choose a book from the selection to discuss next month.</p>
 		<h5 class="card-title">{{ question.question_text }}</h5>
-		
 	 
 		{% if error_message %}
 		<p class ="alert alert-danger">
 		<strong>{{ error_message }}</strong>
 		</p>
 		{% endif %}
-		<form action ="{% url 'vote' question.id %}" method ="post"></form>
-	<div class="row row-cols-1 row-cols-md-3 g-4">
+		<form action ="{% url 'vote' question.id %}" method ="post">
+		<div class="row row-cols-1 row-cols-md-3 g-4">
 		
-		{% csrf_token %}
-		{% for choice in question.choice_set.all %}	
-		<div class="col">
-			<div class="card">
-				{% if "placeholder" in choice.book.image.url %}
-				<img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="card-img-top" alt="placeholder image">
-				{% else %}
-				<img class="card-img-top" src=" {{ choice.book.image.url }}" alt="{{ choice.book.title }}">
-				{% endif %}
-				<div class="card-body">
-					
-					<h5>{{ choice.book }}</h5>
-					<p class="card-text">{{ choice.book.excerpt }}</p>
-					<input type="radio" name ="choice" class="btn-check" name="options-outlined" id ="choice{{ forloop.counter }}" autocomplete="off" >
-					<label class="btn btn-outline-success" for="choice{{ forloop.counter }}">Vote for this Book</label>
+			{% csrf_token %}
+			{% for choice in question.choice_set.all %}	
+			<div class="col">
+				<div class="card">
+					{% if "placeholder" in choice.book.image.url %}
+					<img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="card-img-top" alt="placeholder image">
+					{% else %}
+					<img class="card-img-top" src=" {{ choice.book.image.url }}" alt="{{ choice.book.title }}">
+					{% endif %}
+					<div class="card-body">
+						
+						<h5>{{ choice.book }}</h5>
+						<p class="card-text">{{ choice.book.excerpt }}</p>
+						<input type="radio" name ="choice" class="btn-check" name="options-outlined" id ="choice{{ forloop.counter }}"  value ="{{ choice.id }}" >
+						<label class="btn btn-outline-success" for="choice{{ forloop.counter }}">Vote for this Book</label>
+					</div>
 				</div>
-			</div>
-		</div><!-- ends col-->
-
-		{% endfor %}
-		<div class="voting-cont">
-			<div class="vote-submit">
-				<input type ="submit" value ="Vote" class ="btn btn-success btn-lg btn-block poll-submit" />
-			</div>						
-			<div class="vote-back">
-				<a href="{% url 'polls' %}" class="btn btn-readmore back">Back To Polls</a>
-			</div>
-		</div>	
-		
-		  
+			</div><!-- ends col-->
+			{% endfor %}
+			<div class="voting-cont">
+				<div class="vote-submit">
+					<input type ="submit" value ="Vote" class ="btn btn-success btn-lg btn-block poll-submit" />
+				</div>						
+				<div class="vote-back">
+					<a href="{% url 'polls' %}" class="btn btn-readmore back">Back To Polls</a>
+				</div>
+			</div>			  
+		</div>
+		</form>
 	</div>
-</form>
-</div>
 </div>
 {% endblock %}
 
