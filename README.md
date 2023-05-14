@@ -31,12 +31,11 @@ Page Turner Book Club is an app to book lovers to find book to read and upload b
     + [My Books](#my-books)
     + [Add Books](#add-book-form)
     + [Edit Book](#edit-book-form)
-    + [Delete RecipeBook](#delete-book)
+    + [Delete Book](#delete-book)
     + [Error Pages](#error-pages)
     + [Future Features](#future-features)
   * [Deployment - Heroku](#deployment---heroku)
   * [Forking this repository](#forking-this-repository)
-  * [Cloning this repository](#cloning-this-repository)
   * [Languages](#languages)
   * [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
   * [Credits](#credits)
@@ -81,33 +80,64 @@ The following user stories were left out of the project due to time constraints 
 - As a Site Admin I can send out reminders and notifications about upcoming meetings/events so that everyone stays up to date with events/meetings.
 - As a Site Admin I can send an automatic Zoom meeting link to members so that they can easily connect with members on the monthly discussion.
 
-## Gitpod Reminders
+## Design
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The book club website embraces a simple and clean design approach, intentionally chosen to align with its core objective of fostering a tranquil experience for users. The objetive was to maintain a cohesive color scheme across the website, promoting a harmonious and relaxing aesthetic. 
 
-`python3 -m http.server`
+### Colour Scheme
+Colour palette from Colormind
 
-A blue button should appear to click: _Make Public_,
+The website embraces a color scheme that primarily features a soft and gentle pale yellow for the backgrounds, while employing a pink shade for accents. The navigation bar adopts a sophisticated and subdued dark grey-blue tone, while the footer has a vibrant touch of orange.
 
-Another blue button should appear to click: _Open Browser_.
+These carefully selected colors create a harmonious and neutral ambiance, while simultaneously offering distinct contrasts that add visual interest to the design. By combining neutral and contrasting colors, the website achieves a balanced and engaging aesthetic that appeals to users and enhances their overall experience.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+#### Imagery
+There are only a few static images on the site-s main page. Three big images for the carousel and one smaller one at the bottom for the featurette.  The rest of the imagery will be uploaded by users or the admin on when adding books to the club. 
 
-A blue button should appear to click: _Make Public_,
+#### Fonts
+Ppen Sans imported via Google Fonts is the main font used for the the website.  Sans Serif is the fallback font.
 
-Another blue button should appear to click: _Open Browser_.
+#### Wireframes
+# Upload images. 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Agile Methodology 
 
-To log into the Heroku toolbelt CLI:
+Github projects was used to manage the development process using an agile approach. Please see link to project board [here](https://github.com/users/Ygallo/projects/3)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Data Model
+Throughout the project, I applied the principles of Object-Oriented Programming (OOP), leveraging the power of Django's Class-Based Generic Views. 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+Django AllAuth was used for the user authentication system.
 
-------
+In order for the users/ admin to add books to the club a model was required. User entity represents the registered users of the website, who can add books, like, comment and participate in discussions. Each user has a unique ID, name, email, and password.
 
+Book entity represents the collection of books that the book club members can read and discuss. Each book has a unique ID, title, author, image, description and genre among the others.
+
+The Comment model allows users to comment on individual books and the Book is a foreign key in the comment model given a comment can only be linked to one book. 
+
+The Question model represents a poll created to vote on the proposed books.
+The Choice model represent the book choices the members will vote on. These is a ForeingKey as the choices will be take from the books on the club.
+
+The Vote represents a poll (question) created to vote on the proposed books.
+
+The book of the Month is the Model that will display the winner book of the vote.
+
+The diagram below details the database schema.
+
+# upload image
+
+## Testing
+
+# link testing
+Testing and results can be found [here]()
+
+## Security Features and Defensive Design
+
+### User Authentication
+The login_required decorator is used to ensure only logged in users can vote on the monthly book poll and non-authenticated users are redirected to the login page.
+
+### Database Security
+
+To enhance security, I implemented specific measures in the project. Firstly, I ensured that sensitive information like the database URL and secret key were stored in the env.py file. By keeping these details separate and preventing them from being pushed to Github during the initial setup, I minimized the risk of unauthorized access or unwanted connections to the database.
+
+Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
