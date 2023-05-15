@@ -1,7 +1,7 @@
 
 # Page Turner Book Club
 
-Page Turner Book Club is an app to book lovers to find book to read and upload book for other user to explore. It is tarjet for people who like reading and areb interested in discussing and commenting about the books. There will be a monthly poll where user can vote for a book title to discuss on or just leave a comment. 
+Page Turner Book Club is an app for book lovers to find books to read and upload a book for another user to explore. It is targeted at people who like reading and are interested in discussing and commenting on the books. There will be a monthly poll where users can vote for a book title to discuss or just leave a comment. 
 
 
 ## Table of contents
@@ -46,12 +46,12 @@ Page Turner Book Club is an app to book lovers to find book to read and upload b
 
 ## User Experience (UX)
 
-A visitor of the Page Turner Book Club would be someone who is a an avid reader and is looking to be part of like-minded people group where he can discuss, recomend and find new reading interests.
+A visitor of the Page Turner Book Club would be someone who is an avid reader and is looking to be part of like-minded people group where he can discuss, recommend and find new reading interests.
 
 ### User Stories
 
 #### User Profile
-- As a User I can register an Account so that so I can join a book club and connect with other readers.
+- As a User, I can register an Account so that so I can join a book club and connect with other readers.
 - As a User, I can log in or log out of my account so that I can have access to member benefits such as comments and votes.
 
 #### User Navigation
@@ -74,7 +74,7 @@ A visitor of the Page Turner Book Club would be someone who is a an avid reader 
 
 #### User stories for future implementation
 
-The following user stories were left out of the project due to time constraints and labelled as "Won't Have" on the project board on Github. It is intended for these user stories to be implemented at a later date. 
+The following user stories were left out of the project due to time constraints and labeled as "Won't Have" on the project board on GitHub. It is intended for these user stories to be implemented at a later date. 
 
 - As a Site User I can filter books by genre so that I can find the ones I am more interested in.
 - As a Site User I can see a list of upcoming book club meetings and events so that I can plan a reading schedule accordingly.
@@ -85,22 +85,22 @@ The following user stories were left out of the project due to time constraints 
 
 ## Design
 
-The book club website embraces a simple and clean design approach, intentionally chosen to align with its core objective of fostering a tranquil experience for users. The objetive was to maintain a cohesive color scheme across the website, promoting a harmonious and relaxing aesthetic. 
+The book club website embraces a simple and clean design approach, intentionally chosen to align with its core objective of fostering a tranquil experience for users. The objective is to maintain a cohesive color scheme across the website, promoting a harmonious and relaxing aesthetic.
 
 ### Colour Scheme
-Colour palette from Colormind
+Color palette from Colormind
 
 ![colormind](https://res.cloudinary.com/dne60wscn/image/upload/v1684098289/static/readme%20images/Colormind-pageturner_brcmmp.jpg)
 
-The website embraces a color scheme that primarily features a soft and gentle pale yellow for the backgrounds, while employing a pink shade for accents. The navigation bar adopts a sophisticated and subdued dark grey-blue tone, while the footer has a vibrant touch of orange.
+The website embraces a color scheme that primarily features a soft and gentle pale yellow for the backgrounds while employing a pink shade for accents. The navigation bar adopts a sophisticated and subdued dark grey-blue tone, while the footer has a vibrant touch of orange.
 
 These carefully selected colors create a harmonious and neutral ambiance, while simultaneously offering distinct contrasts that add visual interest to the design. By combining neutral and contrasting colors, the website achieves a balanced and engaging aesthetic that appeals to users and enhances their overall experience.
 
 #### Imagery
-There are only a few static images on the site-s main page. Three big images for the carousel and one smaller one at the bottom for the featurette.  The rest of the imagery will be uploaded by users or the admin on when adding books to the club. 
+There are only a few static images on the site-s main page. Three big images for the carousel and one smaller one at the bottom for the featurette.  The rest of the imagery will be uploaded by users or the admin when adding books to the club. 
 
 #### Fonts
-Open Sans imported via Google Fonts is the main font used for the the website.  Sans Serif is the fallback font.
+Open Sans imported via Google Fonts is the main font used for the website.  Sans Serif is the fallback font.
 
 #### Wireframes
 
@@ -108,7 +108,7 @@ Open Sans imported via Google Fonts is the main font used for the the website.  
 
 ## Agile Methodology 
 
-Github projects was used to manage the development process using an agile approach. Please see link to project board [here](https://github.com/users/Ygallo/projects/3)
+GitHub projects were used to manage the development process using an agile approach. Please see a link to the project board [here](https://github.com/users/Ygallo/projects/3)
 
 ## Data Model
 
@@ -116,14 +116,14 @@ Throughout the project, I applied the principles of Object-Oriented Programming 
 
 Django AllAuth was used for the user authentication system.
 
-In order for the users/ admin to add books to the club a model was required. **User** entity represents the registered users of the website, who can add books, like, comment and participate in discussions. Each user has a unique ID, name, email, and password.
+For the users/ admin to add books to the club a model was required. **User** entity represents the registered users of the website, who can add books, like, comment and participate in discussions. Each user has a unique ID, name, email, and password.
 
-**Book** entity represents the collection of books that the book club members can read and discuss. Each book has a unique ID, title, author, image, description and genre among the others.
+**Book** entity represents the collection of books that the book club members can read and discuss. Each book has a unique ID, title, author, image, description, and genre among others.
 
-The **Comment** model allows users to comment on individual books and the Book is a foreign key in the comment model given a comment can only be linked to one book. 
+The **Comment** model allows users to comment on individual books. The Book is a foreign key in the comment model commented can only be linked to one book. 
 
 The **Question** model represents a poll created to vote on the proposed books.
-The **Choice** model represent the book choices the members will vote on. This is a ForeingKey as the choices will be take from the books on the club.
+The **Choice** model represents the book choices the members will vote on. This is a ForeingKey as the choices will be taken from the books on the club.
 
 The **Vote** represents a poll (question) created to vote on the proposed books.
 
@@ -146,7 +146,7 @@ The login_required decorator is used to ensure only logged in users can vote on 
 
 ### Database Security
 
-To enhance security, I implemented specific measures in the project. Firstly, I ensured that sensitive information like the database URL and secret key were stored in the env.py file. By keeping these details separate and preventing them from being pushed to Github during the initial setup, I minimized the risk of unauthorized access or unwanted connections to the database.
+To enhance security, I implemented specific measures in the project. Firstly, I ensured that sensitive information like the database URL and secret key was stored in the env.py file. By keeping these details separate and preventing them from being pushed to Github during the initial setup, I minimized the risk of unauthorized access or unwanted connections to the database.
 
 Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
 
@@ -154,7 +154,7 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 Custom Error Pages were created to give the user more information on the error and to provide them with buttons to guide them back to the site.
 
-- 404 Page Not Found - Oh no! Whatever book you are lookin for doesn't seem to exist.
+- 404 Page Not Found - Oh no! Whatever book you are looking for doesn't seem to exist.
 
 ## Features
 
@@ -242,9 +242,9 @@ Custom Error Pages were created to give the user more information on the error a
 
 ## Add Book Form
 
-- If the user is logged in, then they can add a book by clicking on Add Book  in the navigation bar.
-- The form will be displayed with required fields for the books's Title, Slug, Author and Description, failing to complete them will render a message stating which fields you have missed.
-- The field for genre is a required field with a dropdown with different book genres, but it has a default blank option. 
+- If the user is logged in, then they can add a book by clicking on Add Book in the navigation bar.
+- The form will be displayed with the required fields for the books's Title, Slug, Author, and Description, failing to complete them will render a message stating which fields you have missed.
+- The field for the genre is a required field with a dropdown with different book genres, but it has a default blank option. 
 - The image field also has a default image to display as the book cover. in case the user do not upload a cover.
 - The form fields for 'Description' include a WYSIWYG editor called Summernote to help the user format their content.
 
@@ -255,34 +255,34 @@ Custom Error Pages were created to give the user more information on the error a
 
 # img
 
--  Only a logged in user can choose to edit a book they uploaded and showing in their "My Books" page. This is done by clicking the edit button on the book card. 
+-  Only a logged-in user can choose to edit a book they uploaded and showing in their "My Books" page. This is done by clicking the edit button on the book card. 
 - The form opens with all fields populated with the original content.
-- If a user tries to edit a book (by changing the url) without being signed in they are redirected to the log in page.
+- If a user tries to edit a book (by changing the URL) without being signed in they are redirected to the login page.
 
 ### Delete Recipe
 
  ![deletebook](https://res.cloudinary.com/dne60wscn/image/upload/v1684100192/static/readme%20images/delet4ebook_ke4jyp.jpg)
 
-- Only a logged in user can choose to delete a book they uploaded and showing in their "My Books" page. This is done by clicking the edit button on the book card. 
+- Only a logged-in user can choose to delete a book they uploaded and showing on their "My Books" page. This is done by clicking the edit button on the book card. 
 - The user is asked to confirm if they wish to delete the book or cancel.
 
 ### Vote question
 
-- The vote question will only display the last poll title available for the comming month. 
-- The user has the option to click on the **vote now** botton to see the book options for the vote, or to click on **results** to see the results up to the moment.
+- The vote question will only display the last poll title available for the coming month. 
+- The user has the option to click on the **vote now** button to see the book options for the vote, or to click on **results** to see the results up to the moment.
 
 ### Vote choices
 
-- The vote Choices will display the books up for vote. A card with 3 books each with its Cover, Title, Author and a **Vote for this book** botton will be shown to the user.
+- The vote Choices will display the books up for a vote. A card with 3 books each with its Cover, Title, Author, and a **Vote for this book** button will be shown to the user.
 - The User will need to select one option and then confirm the selection by clicking on Vote.
 - If the user tries to vote for a second time a message will appear to inform the *they have already voted on this question*. 
-- If a user tries to access the vote (by changing the url) without being signed in they are redirected to the log in page.
+- If a user tries to access the vote (by changing the URL) without being signed in they are redirected to the login page.
 
 ![vote-choices](https://res.cloudinary.com/dne60wscn/image/upload/v1684100161/static/readme%20images/vote_rffnew.jpg)
 
 ### Vote results
 
- - The Results page will show the current results for the monthly poll. A book cover thumbnail with the title and author will display with the number of votes for each book.
+ - The Results page will show the current results for the monthly poll. A book cover thumbnail with the title and author will display the number of votes for each book.
 
 ![vote-results](https://res.cloudinary.com/dne60wscn/image/upload/v1684100161/static/readme%20images/results_lhy6sb.jpg)
 
@@ -307,7 +307,7 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
 
 ### Create the Heroku App:
 - Log in to [Heroku](https://dashboard.heroku.com/apps).
-- On the main page click the button labelled New in the top right corner and from the drop-down menu select "Create New App".
+- On the main page click the button labeled New in the top right corner and from the drop-down menu select "Create New App".
 - Enter a unique app name.
 - Next select your region.
 - Click on the Create App button.
@@ -397,6 +397,7 @@ The site is now live and operational.
 - [Code Institute - Blog Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog)
 - [Poll](https://medium.com/analytics-vidhya/building-a-simple-poll-system-in-django-part-i-a0bfb4fc3699)
 - [Another Poll](https://prettyprinted.com/tutorials/creating-a-poll-app-in-django/)
+- [More polls](https://www.geeksforgeeks.org/voting-system-project-using-django-framework/)
 - [The Gloss Book CLub](https://theglossbookclub.com/): for inspirations and a few frases.
 
 ## Acknowledgments

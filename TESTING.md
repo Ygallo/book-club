@@ -33,25 +33,25 @@
 
 All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/). See results in below table.
   
-  | Page         	| Logged out 	| Logged in 	|
+| Page         	| Logged out 	| Logged in 	|
 |--------------	|------------	|-----------	|
-| Home         	|            	|           	|
-| Books        	|            	|           	|
-| Book_detail  	|            	|           	|
+| Home         	| No errors   | No errors   |
+| Books        	| No errors   | No errors   |  
+| Book_detail  	| No errors           	
 | add_book     	| N/A        	|           	|
 | edit_book    	| N/A        	|           	|
-| delete_book  	| N/A        	|           	|
-| my_books     	| N/A        	|           	|
+| delete_book  	| N/A        	| No errors   |          	
+| my_books     	| N/A        	| No errors   |
 | poll/index   	| N/A        	|           	|
 | poll_detail  	| N/A        	|           	|
 | poll_results 	| N/A        	|           	|
-| login        	|            	|           	|
-| logout       	|            	|           	|
-| signup       	|            	|           	|
-| 400          	|            	|           	|
-| 403          	|            	|           	|
-| 404          	|            	|           	|
-| 500          	|            	|           	|
+| login        	| No errors   | N/A         |       	
+| logout       	| N/A         |	No errors
+| signup       	| No errors   | N/A         |           	
+| 400          	| No errors   | No errors   |        	
+| 403          	| No errors   | No errors   |       
+| 404          	| No errors   | No errors   |         	
+| 500          	| No errors   | No errors   |           	
 
 
 ## Manual Testing
@@ -137,8 +137,89 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 
 ###  My Books Page
 
+| Element       	| Action  	| Expected Result                	| Pass/Fail 	|
+|---------------	|---------	|--------------------------------	|-----------	|
+| More button   	| Click   	| Redirects to Book details page 	| Pass      	|
+| Edit button   	| Click   	| Redirects to Edit form         	| Pass      	|
+| Delete Button 	| Click   	| Redirects to confirm deletion  	| Pass      	|
+
 ###  Add Book Page
 
+| Element                       	| Action      	| Expected Result                                	| Pass/Fail 	|
+|-------------------------------	|-------------	|------------------------------------------------	|-----------	|
+| Form Text Input (if required) 	| Leave blank 	| Form won't submit                              	| Pass      	|
+| Genre dropdown                	| Click       	| Display a drop down with the genre option      	| Pass      	|
+| Genre dropdown                	| Leave blank 	| "Blank" by default - will allow form submition 	| Pass      	|
+| Form image select button      	| Click       	| Open device storage                            	| Pass      	|
+| Form image select button      	| Display     	| Chosen image name displayed once selected      	| Pass      	|
+| Form image select button      	| Click       	| Default image is used if no image is selected  	| Pass      	|
+| Submit button(form valid)     	| Click       	| Form submit                                    	|           	|
+
 ###  Edit Book Page
+| Element      	| Action 	| Expected Result                     	| Pass/Fail 	|
+|--------------	|--------	|-------------------------------------	|-----------	|
+| Save button  	| Click  	| User is redirected to My Books page 	| Pass      	|
 
 ###  Delete Book Page
+| Element        	| Action 	| Expected Result                     	| Pass/Fail 	|
+|----------------	|--------	|-------------------------------------	|-----------	|
+| Delete button  	| Click  	| User is redirected to My Books page 	| Pass      	|
+| Cancel button  	| Click  	| User is redirected to My Books Page 	| Pass      	|
+
+### Django All Auth Pages
+
+### Django All Auth Pages
+| Element                    | Action                                    | Expected Result                            | Pass/Fail |
+|----------------------------|-------------------------------------------|--------------------------------------------|-----------|
+| Sign Up                    |                                           |                                            |           |
+| Log in link                | Click                                     | Redirect to login page                     | Pass      |
+| Username field             | Leave empty                               | On submit: form won't submit               | Pass      |
+| Username field             | Leave empty                               | Error message displays                     | Pass      |
+| Username field             | Insert correct format: numbers            | On submit: form submit                     | Pass      |
+| Username field             | Insert duplicate username                 | On submit: form won't submit               | Pass      |
+| Username field             | Insert duplicate username                 | Error message displays                     | Pass      |
+| Email field                | Insert incorrect format                   | On submit: form won't submit               | Pass      |
+| Email field                | Insert incorrect format                   | Error message displays                     | Pass      |
+| Email field                | Insert correct format                     | On submit: form submit                     | Pass      |
+| Email field                | Leave empty                               | On submit: form submit                     | Pass      |
+| Email field                | Insert duplicate email                    | On submit: form won't submit               | Pass      |
+| Email field                | Insert duplicate email                    | Error message displays                     | Pass      |
+| Password field             | Insert incorrect format                   | On submit: form won't submit               | Pass      |
+| Password field             | Insert incorrect format                   | Error message displays                     | Pass      |
+| Password field             | Passwords don't match                     | On submit: form won't submit               | Pass      |
+| Password field             | Passwords don't match                     | Error message displays                     | Pass      |
+| Password field             | Insert correct format and passwords match | On submit: form submit                     | Pass      |
+| Sign Up button(form valid) | Click                                     | Form submit                                | Pass      |
+| Sign Up button(form valid) | Click                                     | Redirect to home page                      | Pass      |
+| Sign Up button(form valid) | Click                                     | Success message confirming login appears   | Pass      |
+| Sign Up button(form valid) | Click                                     | Success message fades after 3 seconds      | Pass      |
+|                            |                                           |                                            |           |
+| Log in                     |                                           |                                            |           |
+| Sign up link               | Click                                     | Redirect to sign up page                   | Pass      |
+| Username field             | Leave empty                               | On submit: form won't submit               | Pass      |
+| Username field             | Insert wrong username                     | On submit: form won't submit               | Pass      |
+| Username field             | Insert wrong username                     | Error message displays                     | Pass      |
+| Password field             | Leave empty                               | On submit: form won't submit               | Pass      |
+| Password field             | Leave empty                               | Error message displays                     | Pass      |
+| Password field             | Insert wrong password                     | On submit: form won't submit               | Pass      |
+| Password field             | Insert wrong password                     | Error message displays                     | Pass      |
+| Login button(form valid)   | Click                                     | Form submit                                | Pass      |
+| Login button(form valid)   | Click                                     | Redirect to home page                      | Pass      |
+| Login button(form valid)   | Click                                     | Success message confirming login appears   | Pass      |
+| Login button(form valid)   | Click                                     | Success message fades after 3 seconds      | Pass      |
+|                            |                                           |                                            |           |
+| Log Out                    |                                           |                                            |           |
+| Logout button              | Click                                     | Redirect to homepage                       | Pass      |
+| Logout button              | Click                                     | Success message confirming log out appears | Pass      |
+| Logout button              | Click                                     | Success message fades after 3 seconds      | Pass      |
+
+## Trouble shooting
+
+- **Bug**:  On deploying>  heroku error: missing required flag: -a, --app app - wrong name - appname instead of project name. 
+- **Fix**: by updating Requirements.txt 
+
+- **Bug**: Forms not working.
+- **Fix**: updated Crispy Bootstrap 4 to Crispy Bootstrap 5.
+
+- **Bug**: style sheet not updating.
+- **Fix**: solved until deployment by adding **?{% now "U" %}**to the end of the href. When the project was deployed for submission, the style sheet was not working on the deployed app. The solution was to remove **?{% now "U" %}** and upload the stylesheet to Cloudinary

@@ -12,14 +12,13 @@
             decide which book will become next month’s title. Our Curated vote list is comprised of at least three
             books. You can Vote below for next
             month’s Book</p>
-
        <p class="card-text">
         
         {% if latest_question_list %}
         {% for question in latest_question_list %}
         
         <h5 class ="">{{ question.question_text }}</h5>
-         <a href ="{% url 'detail' question.id %}" class ="btn btn-primary btn-sm">Vote Now</a>
+        <a href ="{% url 'detail' question.id %}" class ="btn btn-primary btn-sm">Vote Now</a>
         <a href ="{% url 'results' question.id %}" class ="btn btn-secondary btn-sm">Results</a>
       
         <hr class="featurette-divider">
