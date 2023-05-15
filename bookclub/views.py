@@ -111,7 +111,7 @@ class MyBooks(generic.ListView):
         return Book.objects.filter(created_by=self.request.user.id)
 
 
-@login_required(redirect_field_name="account_login")
+# @login_required(redirect_field_name="account_login")
 class AddBook(generic.CreateView):
     """
     View to allow users once logged in to add a book
@@ -126,7 +126,7 @@ class AddBook(generic.CreateView):
         return super().form_valid(form)
 
 
-@login_required(redirect_field_name="account_login")
+# @login_required(redirect_field_name="account_login")
 class EditBook(generic.UpdateView):
     """
     View that allows users to edit a book they had add to the club
@@ -137,7 +137,7 @@ class EditBook(generic.UpdateView):
     success_url = reverse_lazy('my_books')
 
 
-@login_required(redirect_field_name="account_login")
+# @login_required(redirect_field_name="account_login")
 class DeleteBook(SuccessMessageMixin, generic.DeleteView):
     """
     View that allows users to delete a book they had add to the club

@@ -227,7 +227,9 @@ Custom Error Pages were created to give the user more information on the error a
 ## Books detail page
 
 - The book detail section displays the book cover image, author, title, and full book description.
-- It also display a heart with a number where the user can like a book. Also there are bubble speachs with a number to show if the book has any comment. 
+- It also displays a heart with a number next to it where the user can like a book. Also there are bubble speachs with a number to show if the book has any comment. 
+
+# img
 
 ## Comment Section
 
@@ -236,7 +238,17 @@ Custom Error Pages were created to give the user more information on the error a
 
 ![comments]
 
+## My Book
+
 ## Add Book Form
+
+- If the user is logged in, then they can add a book by clicking on Add Book  in the navigation bar.
+- The form will be displayed with required fields for the books's Title, Slug, Author and Description, failing to complete them will render a message stating which fields you have missed.
+- The field for genre is a required field with a dropdown with different book genres, but it has a default blank option. 
+- The image field also has a default image to display as the book cover. in case the user do not upload a cover.
+- The form fields for 'Description' include a WYSIWYG editor called Summernote to help the user format their content.
+
+
 # img
 
 ### Edit Book Form
@@ -256,13 +268,139 @@ Custom Error Pages were created to give the user more information on the error a
 
 ### Vote question
 
+- The vote question will only display the last poll title available for the comming month. 
+- The user has the option to click on the **vote now** botton to see the book options for the vote, or to click on **results** to see the results up to the moment.
 
 ### Vote choices
+
+- The vote Choices will display the books up for vote. A card with 3 books each with its Cover, Title, Author and a **Vote for this book** botton will be shown to the user.
+- The User will need to select one option and then confirm the selection by clicking on Vote.
+- If the user tries to vote for a second time a message will appear to inform the *they have already voted on this question*. 
+- If a user tries to access the vote (by changing the url) without being signed in they are redirected to the log in page.
 
 ![vote-choices](https://res.cloudinary.com/dne60wscn/image/upload/v1684100161/static/readme%20images/vote_rffnew.jpg)
 
 ### Vote results
 
+ - The Results page will show the current results for the monthly poll. A book cover thumbnail with the title and author will display with the number of votes for each book.
+
 ![vote-results](https://res.cloudinary.com/dne60wscn/image/upload/v1684100161/static/readme%20images/results_lhy6sb.jpg)
 
-    
+### Error Pages
+
+Custom error pages were meticulously designed and implemented to provide users with comprehensive information when encountering errors and to guide them seamlessly back to the site. 
+
+![error](https://res.cloudinary.com/dne60wscn/image/upload/v1684152882/static/readme%20images/404_er7mvj.jpg)
+
+- 400 Bad Request - Page Turner Book Club is unable to handle this request.
+- 403 Page Forbidden - The page you are trying to access has forbidden content.
+- 404 Page Not Found - Oh no! Whatever book you are lookin for doesn't seem to exist.
+- 500 Server Error - Oh no! Something just isn't right. Please come back later.
+
+### Future Features
+
+# pending 
+
+## Deployment - Heroku
+
+To deploy this page to Heroku from its GitHub repository, the following steps were taken:
+
+### Create the Heroku App:
+- Log in to [Heroku](https://dashboard.heroku.com/apps).
+- On the main page click the button labelled New in the top right corner and from the drop-down menu select "Create New App".
+- Enter a unique app name.
+- Next select your region.
+- Click on the Create App button.
+
+### Attach the Postgres database:
+- In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+- Copy the DATABASE_URL located in Config Vars in the Settings Tab.
+
+### Prepare the environment and settings.py file:
+- In my GitPod workspace, create an env.py file in the main directory.
+- Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file. 
+- Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
+- Comment out the default database configuration.
+- Save files and make migrations.
+- Add Cloudinary URL to env.py
+- Add the cloudinary libraries to the list of installed apps.
+- Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+- Link the file to the templates directory in Heroku.
+- Change the templates directory to TEMPLATES_DIR
+- Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
+
+### Create files / directories
+- Create requirements.txt file
+- Create  directories in the main directory for static and templates.
+- Create a file named "Procfile" in the main directory and add the following: web: gunicorn project-name.wsgi
+
+### Update Heroku Config Vars
+Add the following Config Vars in Heroku:
+- SECRET_KEY value 
+- CLOUDINARY_URL
+- PORT = 8000
+- DISABLE_COLLECTSTATIC = 1
+
+### Deploy
+- NB: Ensure in Django settings, DEBUG is False
+- Go to the deploy tab on Heroku and connect to GitHub, then to the required repository. 
+- Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys. Every push to main will deploy a new version of this app. Deploys happen automatically.
+
+The site is now live and operational.
+
+## Forking this repository
+- Locate the repository at this link [Page Turner Book Club](https://github.com/Ygallo/book-club).
+- At the top of the repository, on the right side of the page, select "Fork" from the buttons available. 
+- A copy of the repository is now created.
+
+## Languages
+
+- Python
+- HTML
+- CSS
+- Javascript
+
+## Frameworks - Libraries - Programs Used
+- [Django](https://www.djangoproject.com/): Main python framework used in the development of this project
+- [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html): authentication library used to create the user accounts
+- [PostgreSQL](https://www.postgresql.org/) was used as the database for this project.
+- [Heroku](https://dashboard.heroku.com/login) - was used as the cloud based platform to deploy the site on.
+- [Responsinator](http://www.responsinator.com/) - Used to verify responsiveness of website on different devices.
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used for overall development and tweaking, including testing responsiveness and performance.
+- [Font Awesome](https://fontawesome.com/) - Used for icons in information bar.
+- [GitHub](https://github.com/) - Used for version control and agile tool.
+- [Google Fonts](https://fonts.google.com/) - Used to import and alter fonts on the page.
+- [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
+- [PEP8 Online](http://pep8online.com/) - used to validate all the Python code
+- [Jshint](https://jshint.com/) - used to validate javascript
+- [Colormind](http://colormind.io/bootstrap/) - Used to create colour palette.
+- [Favicon](https://favicon.io/) - Used to create the favicon.
+- [Lucidchart](https://lucid.app/documents#/dashboard) - used to create the database schema design
+- [Grammerly](https://app.grammarly.com/) - used to proof read the README.md
+- [Summernote](https://summernote.org/): A WYSIWYG editor to allow users to edit their posts
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) used to manage Django Forms
+- [Cloudinary](https://cloudinary.com/): the image hosting service used to upload images
+- [Bootstrap 5](https://getbootstrap.com/): CSS Framework for developing responsiveness and styling
+- [Tables Generator](https://www.tablesgenerator.com/markdown_tables): Used to convert excel testing tables to markdown
+
+## Credits
+
+- [W3Schools](https://www.w3schools.com/)
+- [Django Docs](https://docs.djangoproject.com/en/4.0/)
+- [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [Stack Overflow](https://stackoverflow.com/)
+- [Pexels](https://www.pexels.com/): All imagery on the site was sourced from Pexels.com
+- [Pixabay](https://pixabay.com/): for more images.
+- [Update View](https://pytutorial.com/django-updateview-example)
+- [Pagination](https://docs.djangoproject.com/en/2.2/topics/pagination/#using-paginator-in-a-view)
+- [@login required](https://docs.djangoproject.com/en/4.2/topics/auth/default/)
+- [Code Institute - Blog Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog)
+- [Poll](https://medium.com/analytics-vidhya/building-a-simple-poll-system-in-django-part-i-a0bfb4fc3699)
+- [Another Poll](https://prettyprinted.com/tutorials/creating-a-poll-app-in-django/)
+- [The Gloss Book CLub](https://theglossbookclub.com/): for inspirations and a few frases.
+
+## Acknowledgments
+
+I would like to thanks my Mentor, Andre Aquilina who supported my project idea and help me on my vote model that was missing one final twist to work as intended. 
+
+I am fortunate to have the unwavering support and invaluable feedback of my husband throughout this project. His continuous encouragement and guidance have been instrumental in my progress and success.
