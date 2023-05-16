@@ -5,7 +5,6 @@
     <div class="card-header">
         Poll Questions
     </div>
-    
     <div class="card-body">
         <p class="card-text">We read a lot to identify the best new books out there, and we also take sugggestion from our
             members books addition to the club. Then we hold a members VOTE to
@@ -20,11 +19,11 @@
         <h5 class ="">{{ question.question_text }}</h5>
         <a href ="{% url 'detail' question.id %}" class ="btn btn-primary btn-sm">Vote Now</a>
         <a href ="{% url 'results' question.id %}" class ="btn btn-secondary btn-sm">Results</a>
-      
-        <hr class="featurette-divider">
         {% endfor %}
         {% else %}
+        <hr class="featurette-divider">
     </div>
+
 </div>
 
 <p>No polls available</p>

@@ -1,4 +1,6 @@
 
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap);
+
 /* Header - Navigation */
 .blue {
     background-color: #2e3a42;
@@ -26,9 +28,8 @@
     background-color: #f2ecce;
 }
 
-.openbook {
-    width: 500;
-    height: 500;
+.opensans {
+    font-family: 'open sans', 'sans serif';
 }
 
 .love-book {
@@ -116,11 +117,18 @@
     overflow: hidden;
 }
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+
 .read-more {
-    width: 60%;
+    width: 95%;
     height: 45px;
     bottom: 0;
-    position: absolute;
+    margin-top: auto;
 }
 
 .author {

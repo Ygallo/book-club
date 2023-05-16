@@ -31,6 +31,7 @@ admin.site.register(Vote)
 admin.site.register(Choice)
 admin.site.register(BookOfTheMonth)
 
+
 class ChoiceInLine(admin.TabularInline):
     model = Choice
     extra = 3

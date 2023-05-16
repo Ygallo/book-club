@@ -37,22 +37,37 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 |--------------	|------------	|-----------	|
 | Home         	| No errors   | No errors   |
 | Books        	| No errors   | No errors   |  
-| Book_detail  	| No errors           	
-| add_book     	| N/A        	|           	|
-| edit_book    	| N/A        	|           	|
+| Book_detail  	| No errors         	
+| add_book     	| N/A        	| No errors   |  
+| edit_book    	| N/A        	| No errors   |
 | delete_book  	| N/A        	| No errors   |          	
 | my_books     	| N/A        	| No errors   |
-| poll/index   	| N/A        	|           	|
-| poll_detail  	| N/A        	|           	|
-| poll_results 	| N/A        	|           	|
+| poll/index   	| N/A        	|   Note1    	|
+| poll/detail  	| N/A        	|           	|
+| poll/results 	| N/A        	|           	|
 | login        	| No errors   | N/A         |       	
-| logout       	| N/A         |	No errors
+| logout       	| N/A         |	No errors   |
 | signup       	| No errors   | N/A         |           	
 | 400          	| No errors   | No errors   |        	
 | 403          	| No errors   | No errors   |       
 | 404          	| No errors   | No errors   |         	
-| 500          	| No errors   | No errors   |           	
+| 500          	| No errors   | No errors   |   
 
+#### Note 1: poll/index Errors
+- When the poll/index page was run through the validator, 3 error appeard: 
+- Missing main tag: Both tags are present on the original  base.html code. And are present on the HTML source on the page.
+- Unclosed element div: All div are closed on the original index/poll code. Since the errors encountered were not within my own codebase, I regrettably could not rectify them. As a result, these errors remain unresolved.
+
+
+
+### CSS
+No errors were found when passing my CSS file through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+### Javascript
+No errors were found when passing my javascript through [Jshint](https://jshint.com/) 
+
+### Python
+All Python files were run through [Pep8](https://pep8ci.herokuapp.com/) with no errors found. 
 
 ## Manual Testing
 

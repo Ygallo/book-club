@@ -6,7 +6,6 @@ Page Turner Book Club is an app for book lovers to find books to read and upload
 
 ## Table of contents
 - [Page Turner Book Club](#page-turner-book-club)
-
  * [User Experience (UX)](#user-experience-ux)
     + [User Stories](#user-stories)
     + [Design](#design)
@@ -102,9 +101,11 @@ There are only a few static images on the site-s main page. Three big images for
 #### Fonts
 Open Sans imported via Google Fonts is the main font used for the website.  Sans Serif is the fallback font.
 
-#### Wireframes
+#### Wireframe 
 
-![wireframe]
+The project began with a manual wireframe sketch, serving as the initial foundation from which it evolved. This initial wireframe provided a starting point, allowing for a visual representation of the project's structure and layout. 
+
+![wireframe](https://res.cloudinary.com/dne60wscn/image/upload/v1684238232/static/readme%20images/wireframe_bcghih.jpg)
 
 ## Agile Methodology 
 
@@ -136,8 +137,7 @@ The diagram below details the database schema.
 
 ## Testing
 
-# link testing
-Testing and results can be found [here]()
+Testing and results can be found [here](https://github.com/Ygallo/book-club/blob/main/TESTING.md)
 
 ## Security Features and Defensive Design
 
@@ -154,13 +154,16 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 Custom Error Pages were created to give the user more information on the error and to provide them with buttons to guide them back to the site.
 
+- 400 Bad request - Page Turner Book Club is unable to handle this request.
+- 403 Page Forbidden- The page you are trying to access has forbidden content.
 - 404 Page Not Found - Oh no! Whatever book you are looking for doesn't seem to exist.
+- 500 Server error- Oh no! Something just isn't right. Please come back later.
 
 ## Features
 
 ## Header
 
-![header]
+![header](https://res.cloudinary.com/dne60wscn/image/upload/v1684238829/static/readme%20images/navbar1_vnd5tf.jpg)
 
 - The name of the Page is to the left of the navigation bar, is present in all the pages and likes back to the homepage.
 - The navigation bar includes links to all the pages on the site.
@@ -216,20 +219,19 @@ Custom Error Pages were created to give the user more information on the error a
 ![login](https://res.cloudinary.com/dne60wscn/image/upload/v1684098290/static/readme%20images/login_zu6zcw.jpg)
 
 **Log Out**
-# img
 
-![signout]
+![signout](https://res.cloudinary.com/dne60wscn/image/upload/v1684239900/static/readme%20images/signout_f4fj9t.jpg)
 
-- The Sign up, Log in, and Log out functionality was implemented using Django allauth. This authentication package was integrated into the project, enabling seamless user registration, login, and logout processes.
+- The Signup, Log in, and Log out functionality was implemented using Django allauth. This authentication package was integrated into the project, enabling seamless user registration, login, and logout processes.
 
 - To enhance the user experience, success messages were incorporated to provide immediate feedback when users successfully log in or log out
 
 ## Books detail page
 
 - The book detail section displays the book cover image, author, title, and full book description.
-- It also displays a heart with a number next to it where the user can like a book. Also there are bubble speachs with a number to show if the book has any comment. 
+- It also displays a heart with a number next to it where the user can like a book. Also there are bubble speeches with a number to show if the book has any comments. 
 
-# img
+![book_detail](https://res.cloudinary.com/dne60wscn/image/upload/v1684240602/static/readme%20images/bookdetail_q7loii.jpg)
 
 ## Comment Section
 
@@ -365,7 +367,7 @@ The site is now live and operational.
 - [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html): authentication library used to create the user accounts
 - [PostgreSQL](https://www.postgresql.org/) was used as the database for this project.
 - [Heroku](https://dashboard.heroku.com/login) - was used as the cloud based platform to deploy the site on.
-- [Responsinator](http://www.responsinator.com/) - Used to verify responsiveness of website on different devices.
+- [Responsive](https://ui.dev/amiresponsive) - Used to verify responsiveness of website on different devices.
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used for overall development and tweaking, including testing responsiveness and performance.
 - [Font Awesome](https://fontawesome.com/) - Used for icons in information bar.
 - [GitHub](https://github.com/) - Used for version control and agile tool.
@@ -373,7 +375,7 @@ The site is now live and operational.
 - [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
 - [PEP8 Online](http://pep8online.com/) - used to validate all the Python code
 - [Jshint](https://jshint.com/) - used to validate javascript
-- [Colormind](http://colormind.io/bootstrap/) - Used to create colour palette.
+- [Colormind](http://colormind.io/bootstrap/) - Used to create colorworke.
 - [Favicon](https://favicon.io/) - Used to create the favicon.
 - [Lucidchart](https://lucid.app/documents#/dashboard) - used to create the database schema design
 - [Grammerly](https://app.grammarly.com/) - used to proof read the README.md
