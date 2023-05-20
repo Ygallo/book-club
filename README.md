@@ -154,6 +154,8 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 Custom Error Pages were created to give the user more information on the error and to provide them with buttons to guide them back to the site.
 
+![404](https://res.cloudinary.com/dne60wscn/image/upload/v1684152882/static/readme%20images/404_er7mvj.jpg)
+
 - 400 Bad request - Page Turner Book Club is unable to handle this request.
 - 403 Page Forbidden- The page you are trying to access has forbidden content.
 - 404 Page Not Found - Oh no! Whatever book you are looking for doesn't seem to exist.
@@ -193,13 +195,13 @@ Custom Error Pages were created to give the user more information on the error a
 
 - In this section there are three font awesome icons with the information for users to join, like a propose books. Each icon has a line of information and a button with a link to the correct section. 
 
-![icons](https://res.cloudinary.com/dne60wscn/image/upload/v1684098290/static/readme%20images/iconsection_wem0qm.jpg)
+![icons](https://res.cloudinary.com/dne60wscn/image/upload/v1684433780/static/readme%20images/iconsection_p1t8ae.jpg)
 
 ### Featurette
 
 - Within this space, you will discover an image accompanied by a thoughtful description that captures the essence and purpose of the club. 
 
-![featurette](https://res.cloudinary.com/dne60wscn/image/upload/v1684098290/static/readme%20images/featurette_og1wh8.jpg)
+![featurette](https://res.cloudinary.com/dne60wscn/image/upload/v1684433773/static/readme%20images/featurette_ixguki.jpg)
 
 ## Books page 
 
@@ -301,7 +303,9 @@ Custom error pages were meticulously designed and implemented to provide users w
 
 ### Future Features
 
-# pending 
+- Add a filter option when accessing the books page, so the users can filter books by the different genres.
+- Add a calendar for the user to see when signed in with the time and date of the monthly book discussion. 
+- Send automatic invitation to the users and reminders with a link to connect to the meeting. 
 
 ## Deployment - Heroku
 

@@ -42,7 +42,7 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 | edit_book    	| N/A        	| No errors   |
 | delete_book  	| N/A        	| No errors   |          	
 | my_books     	| N/A        	| No errors   |
-| poll/index   	| N/A        	|   Note1    	|
+| poll/index   	| N/A        	|   Note 1    |
 | poll/detail  	| N/A        	|           	|
 | poll/results 	| N/A        	|           	|
 | login        	| No errors   | N/A         |       	
@@ -64,7 +64,9 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 No errors were found when passing my CSS file through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
 ### Javascript
-No errors were found when passing my javascript through [Jshint](https://jshint.com/) 
+No errors were found when passing my javascript through [Jshint](https://jshint.com/)
+
+![jshint](https://res.cloudinary.com/dne60wscn/image/upload/v1684260332/static/images/jshint_elkf9i.jpg)
 
 ### Python
 All Python files were run through [Pep8](https://pep8ci.herokuapp.com/) with no errors found. 

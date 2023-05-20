@@ -34,7 +34,7 @@
                         <div class="image-flash" style="margin:10px;">
                             <span class="badge rounded-pill author">Author: {{ chosen.chosen_book.author }}</span>
                         </div>
-                            <div class="readmore-container"><a href="{% url 'books_detail' chosen.chosen_book.slug %}" class="btn btn-readmore">Read More</a></div>
+                            <div class="text-center"><a href="{% url 'books_detail' chosen.chosen_book.slug %}" class="btn btn-readmore">Read More</a></div>
                     </div>    
                 </div>
             </div>     
@@ -95,7 +95,7 @@
                 <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
                 {% endif %}
                 {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link btn-outline-primary"> Next &raquo;</a></li>
     
                 {% endif %}
             </ul>
