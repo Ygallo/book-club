@@ -18,60 +18,55 @@
               </div>
             <div class="row g-0">
                 <div class="col-md-1">
+                                
                     {% if "placeholder" in chosen.chosen_book.image.url %}
                     <img src="https://res.cloudinary.com/dne60wscn/image/upload/v1684054978/placeholder_pacovf_h61pb2.jpg" class="img-fluid rounded-start" alt="placeholder image" style="max-width: 150px;">
                     {% else %}
                     <img class="card-img-top img-fluid img-thumbnail" src=" {{ chosen.chosen_book.image.url }}" alt="{{ chosen.chosen_book.title }}" style="max-width: 150px;">
                     {% endif %}
-                    
                 </div>
 
                 <div class="col-md-11">
-                
                     <div class="card-body">
                         <h3 class="card-title">{{ chosen.chosen_book.title }}</h3>
                         <p class="card-text excerpt-height">{{ chosen.chosen_book.excerpt }}</p>
                         <div class="image-flash" style="margin:10px;">
                             <span class="badge rounded-pill author">Author: {{ chosen.chosen_book.author }}</span>
                         </div>
-                            <div class="text-center"><a href="{% url 'books_detail' chosen.chosen_book.slug %}" class="btn btn-readmore">Read More</a></div>
+                        <div class="text-center"><a href="{% url 'books_detail' chosen.chosen_book.slug %}" class="btn btn-readmore text-warning">Read More</a></div>
                     </div>    
                 </div>
             </div>     
         </div>
 
-
         {% endfor %}
     </div>
     <!-- ends Book of the month -->
-
     <div class="spacer"></div>
-
     <!-- Books entries -->
    <div class="row row-cols-1 row-cols-md-2 g-4">  
         {% for book in book_list %}
         <div class="card-group" >
-            <div class="card">
+            <div class="card border-warning">
                 <div class="row g-0">
                     <div class="col-md-4">
                         {% if "placeholder" in book.image.url %}
-                        <img src="https://res.cloudinary.com/dne60wscn/image/upload/v1683970487/placeholder_pacovf.png" class="img-fluid rounded-start" alt="placeholder image">
+                        <img src="https://res.cloudinary.com/dne60wscn/image/upload/v1684054978/placeholder_pacovf_h61pb2.jpg" class="img-fluid rounded-start" alt="placeholder image">
                         {% else %}
                         <img class="card-img-top img-fluid rounded-start" src=" {{ book.image.url }}" alt="{{ book.title }}">
                         {% endif %}
-                        <div class="image-flash" style="margin:10px;">
-                            <span class="badge rounded-pill author">Author: {{ book.author }}</span>
-                        </div>
                     </div>
-
+                    
                     <div class="col-md-8">
-                       
                         <div class="card-body">
+                            <div class="image-flash" style="margin:10px;">
+                                <span class="badge rounded-pill author">Author: {{ book.author }}</span>
+                            </div>
                             <h3 class="card-title">{{ book.title }}</h3>
                             <p class="card-text excerpt-height">{{ book.excerpt }}</p>
                                 <div class="read-more"> 
                                     <div class="heart-container"><i class="far fa-heart pink">  {{ book.number_of_likes}}</i></div>
-                                    <div class="readmore-container"><a href="{% url 'books_detail' book.slug %}" class="btn btn-readmore">Read More</a></div>
+                                    <div class="text-center"><a href="{% url 'books_detail' book.slug %}" class="btn btn-readmore text-warning">Read More</a></div>
                                 </div>
                         </div>    
                     </div>

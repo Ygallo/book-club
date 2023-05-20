@@ -23,10 +23,10 @@
 						vote{{ choice.vote_set.count | pluralize }}</span>
 				</div>
 			</li>
-			<div class="spacer"></div>
+			
 			{% endfor %}
 	</ul>
-	<a class ="btn btn-readmore back" href ="{% url 'polls' %}">Back To Polls</a>
+	<a class ="btn btn-readmore back text-warning" href ="{% url 'polls' %}">Back To Polls</a>
 	</div>
 	
   </div>

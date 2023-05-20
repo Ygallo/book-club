@@ -30,11 +30,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['page-turner-bookclub.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['page-turner-bookclub.herokuapp.com', 'localhost', "8000-ygallo-bookclub-mlosbadq99i.ws-eu97.gitpod.io"]
+
 
 # SUMMERNOTE_CONFIG = {
 #     'width': '100%',
@@ -171,6 +172,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type

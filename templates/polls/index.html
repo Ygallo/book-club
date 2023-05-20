@@ -17,8 +17,8 @@
         {% for question in latest_question_list %}
         
         <h5 class ="">{{ question.question_text }}</h5>
-        <a href ="{% url 'detail' question.id %}" class ="btn btn-primary btn-sm">Vote Now</a>
-        <a href ="{% url 'results' question.id %}" class ="btn btn-secondary btn-sm">Results</a>
+        <a href ="{% url 'detail' question.id %}" class ="btn btn-success btn-sm">Vote Now</a>
+        <a href ="{% url 'results' question.id %}" class ="btn btn-readmore text-warning btn-sm">Results</a>
         {% endfor %}
         {% else %}
         <hr class="featurette-divider">

@@ -27,11 +27,11 @@
 					{% else %}
 					<img class="card-img-top vote-detail-img" src=" {{ choice.book.image.url }}" alt="{{ choice.book.title }}">
 					{% endif %}
-					<div class="card-body">	
+					<div class="card-body text-center">	
 						<h5>{{ choice.book }}</h5>
 						<span class="badge rounded-pill author">Author: {{ choice.book.author }}</span>
 						<div class="spacer"></div>
-						<input type="radio" name ="choice" class="btn-check" name="options-outlined" id ="choice{{ forloop.counter }}"  value ="{{ choice.id }}" >
+						<input type="radio" name ="choice" class="btn-check" id ="choice{{ forloop.counter }}"  value ="{{ choice.id }}" >
 						<label class="btn btn-outline-success" for="choice{{ forloop.counter }}">Vote for this Book</label>
 					</div>
 				</div>
@@ -39,10 +39,10 @@
 			{% endfor %}
 			<div class="voting-cont">
 				<div class="vote-submit">
-					<input type ="submit" value ="Vote" class ="btn btn-success btn-lg btn-block poll-submit" />
+					<input type ="submit" value ="Vote" class ="btn btn-success btn-lg btn-block poll-submit">
 				</div>						
 				<div class="vote-back">
-					<a href="{% url 'polls' %}" class="btn btn-readmore back">Back To Polls</a>
+					<a href="{% url 'polls' %}" class="btn btn-readmore back text-warning">Back To Polls</a>
 				</div>
 			</div>			  
 		</div>

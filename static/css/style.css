@@ -122,6 +122,9 @@
     flex-direction: column;
   }
   
+.card-footerfix{
+    flex-direction: row;
+}
 
 
 .read-more {
@@ -137,14 +140,12 @@
 
 .btn-readmore {
     background-color: #2e3a42;
-    color: #f2ecce;
 }
 
 .heart-container {
     width: 20%;
     height: 17px;
     margin-top: 4px;
-    /* text-align: left; */
     float: left;
 }
 
@@ -224,7 +225,7 @@ li i{
 }
 
 .vote-detail-img{
-    max-height: 500px;
+    object-fit: contain;
 }
 
 

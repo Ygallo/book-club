@@ -2,8 +2,6 @@
 
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
-    + [Fixed Errors](#fixed-errors)
-    + [Unfixed Errors](#unfixed-errors)
   * [CSS](#css)
   * [Javascript](#javascript)
   * [Python](#python)
@@ -43,8 +41,8 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 | delete_book  	| N/A        	| No errors   |          	
 | my_books     	| N/A        	| No errors   |
 | poll/index   	| N/A        	|   Note 1    |
-| poll/detail  	| N/A        	|           	|
-| poll/results 	| N/A        	|           	|
+| poll/detail  	| N/A        	| No errors   |
+| poll/results 	| N/A        	| No Erorrs   |
 | login        	| No errors   | N/A         |       	
 | logout       	| N/A         |	No errors   |
 | signup       	| No errors   | N/A         |           	
@@ -54,10 +52,9 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 | 500          	| No errors   | No errors   |   
 
 #### Note 1: poll/index Errors
-- When the poll/index page was run through the validator, 3 error appeard: 
-- Missing main tag: Both tags are present on the original  base.html code. And are present on the HTML source on the page.
-- Unclosed element div: All div are closed on the original index/poll code. Since the errors encountered were not within my own codebase, I regrettably could not rectify them. As a result, these errors remain unresolved.
-
+When the poll/index page was run through the validator, 3 errors appeared: 
+- **Missing main tag**: Both tags are present on the HTML source on the base page, they contain the block content for the other templates.
+- **Unclosed element div**: All divs are closed on the original index/poll code. The first div (card) opens in line 4 and closes in line 26. The second div (card-body) opens in line 8 and closes in line 25. Since the errors encountered were not within my codebase, I regrettably could not rectify them. As a result, these errors remain unresolved.
 
 
 ### CSS
@@ -70,6 +67,12 @@ No errors were found when passing my javascript through [Jshint](https://jshint.
 
 ### Python
 All Python files were run through [Pep8](https://pep8ci.herokuapp.com/) with no errors found. 
+
+## Browser Testing
+- The Website was tested on Google Chrome and Firefox  browsers with no issues noted.
+
+## Device Testing
+The responsive design was checked using Chrome developer tools across multiple devices with structural integrity holding for the various sizes. The website was also viewed on different devices such as Desktop, Laptop, Google S6 and Samsung phone to ensure responsiveness on various screen sizes. The results where as intended. 
 
 ## Manual Testing
 
