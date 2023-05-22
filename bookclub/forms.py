@@ -27,5 +27,5 @@ class BookForm(forms.ModelForm):
             'image',
         ]
         widgets = {
-           'description': SummernoteWidget(),
+           'description': SummernoteInplaceWidget(),
          }

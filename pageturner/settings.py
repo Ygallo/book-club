@@ -37,9 +37,11 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 ALLOWED_HOSTS = ['page-turner-bookclub.herokuapp.com', 'localhost', "8000-ygallo-bookclub-mlosbadq99i.ws-eu97.gitpod.io"]
 
 
-# SUMMERNOTE_CONFIG = {
-#     'width': '100%',
-# }
+SUMMERNOTE_CONFIG = {
+    'iframe': True,
+    'summernote': {'width': '80%',
+    }
+}
 
 # Application definition
 

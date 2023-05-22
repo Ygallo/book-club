@@ -68,6 +68,25 @@ No errors were found when passing my javascript through [Jshint](https://jshint.
 ### Python
 All Python files were run through [Pep8](https://pep8ci.herokuapp.com/) with no errors found. 
 
+## Lighthouse
+
+| Page         	| Performance 	| Accessibility 	| Best Practise 	| SEO 	|
+|--------------	|-------------	|---------------	|---------------	|-----	|
+| Home         	| 73          	| 100           	| 92            	| 100 	|
+| Books        	| 99          	| 96            	| 92            	| 90  	|
+| book_detail  	| 99          	| 97            	| 92            	| 100 	|
+| add_book     	|             	|               	|               	|     	|
+| edit_book    	|             	|               	|               	|     	|
+| delete_book  	|             	|               	|               	|     	|
+| my_books     	|             	|               	|               	|     	|
+| poll/index   	| 99          	| 100           	| 100           	| 100 	|
+| poll/details 	|             	|               	|               	|     	|
+| poll/results 	|             	|               	|               	|     	|
+| login        	| 99          	| 100           	| 92            	| 100 	|
+| logout       	| 99          	| 100           	| 92            	| 100 	|
+| signup       	| 99          	| 100           	| 92            	| 100 	|
+| 400          	|             	|               	|               	|     	|
+
 ## Browser Testing
 - The Website was tested on Google Chrome and Firefox  browsers with no issues noted.
 

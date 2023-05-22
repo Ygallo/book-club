@@ -7,6 +7,8 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic.edit import DeleteView
+from django.contrib import messages
 
 # Create your views here.
 
@@ -111,14 +113,14 @@ class MyBooks(generic.ListView):
         return Book.objects.filter(created_by=self.request.user.id)
 
 
-# @login_required(redirect_field_name="account_login")
-class AddBook(generic.CreateView):
+class AddBook(SuccessMessageMixin, generic.CreateView):
     """
     View to allow users once logged in to add a book
     """
     form_class = BookForm
     template_name = 'add_book.html'
     success_url = reverse_lazy('my_books')
+    success_message = "The book was added successfully"
 
     def form_valid(self, form):
         # Save a new Listing object from the form's data.
@@ -126,8 +128,7 @@ class AddBook(generic.CreateView):
         return super().form_valid(form)
 
 
-# @login_required(redirect_field_name="account_login")
-class EditBook(generic.UpdateView):
+class EditBook(SuccessMessageMixin, generic.UpdateView):
     """
     View that allows users to edit a book they had add to the club
     """
@@ -135,17 +136,21 @@ class EditBook(generic.UpdateView):
     form_class = BookForm
     template_name = 'edit_book.html'
     success_url = reverse_lazy('my_books')
+    success_message = "Your book was edited!"
 
 
-# @login_required(redirect_field_name="account_login")
 class DeleteBook(SuccessMessageMixin, generic.DeleteView):
     """
     View that allows users to delete a book they had add to the club
     """
     model = Book
     template_name = 'delete_book.html'
-    success_message = "Book deleted successfully"
     success_url = reverse_lazy('my_books')
+    success_message = "The book deleted successfully"
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(DeleteBook, self).delete(request, *args, **kwargs)
 
 
 class BookLike(View):
