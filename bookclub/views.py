@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView
 from django.contrib import messages
 
@@ -99,7 +100,7 @@ class BookDetail(View):
         )
 
 
-class MyBooks(generic.ListView):
+class MyBooks(LoginRequiredMixin, generic.ListView):
     """
     View to display users' added books
     """
@@ -113,7 +114,7 @@ class MyBooks(generic.ListView):
         return Book.objects.filter(created_by=self.request.user.id)
 
 
-class AddBook(SuccessMessageMixin, generic.CreateView):
+class AddBook(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     """
     View to allow users once logged in to add a book
     """
@@ -128,7 +129,7 @@ class AddBook(SuccessMessageMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class EditBook(SuccessMessageMixin, generic.UpdateView):
+class EditBook(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     """
     View that allows users to edit a book they had add to the club
     """
@@ -139,7 +140,7 @@ class EditBook(SuccessMessageMixin, generic.UpdateView):
     success_message = "Your book was edited!"
 
 
-class DeleteBook(SuccessMessageMixin, generic.DeleteView):
+class DeleteBook(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
     """
     View that allows users to delete a book they had add to the club
     """
@@ -149,6 +150,9 @@ class DeleteBook(SuccessMessageMixin, generic.DeleteView):
     success_message = "The book deleted successfully"
 
     def delete(self, request, *args, **kwargs):
+        """
+        Code for success message take from python tutorial and stackoverflow
+        """
         messages.success(self.request, self.success_message)
         return super(DeleteBook, self).delete(request, *args, **kwargs)
 

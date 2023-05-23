@@ -262,3 +262,7 @@ The responsive design was checked using Chrome developer tools across multiple d
 
 - **Bug**: style sheet not updating.
 - **Fix**: solved until deployment by adding **?{% now "U" %}**to the end of the href. When the project was deployed for submission, the style sheet was not working on the deployed app. The solution was to remove **?{% now "U" %}** and upload the stylesheet to Cloudinary
+
+## Unfixed bugs
+
+-CSS style file stopped updating mid project, after hard reloading still would not upload changes, I added this code {% now "U" %} from  [Stack overflow](https://stackoverflow.com/questions/52682812/django-css-not-updating). This allowed my to keep working until deployment, but once deployed css was not loading at all. Finally uploaded the css to cloudinary and the styles load on the deployed page. This is not ideal as every change on css means I have to upload a new file but works until a better solution is reach.

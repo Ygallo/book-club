@@ -1,7 +1,7 @@
 
 # Page Turner Book Club
 
-Page Turner Book Club is an app for book lovers to find books to read and upload a book for another user to explore. It is targeted at people who like reading and are interested in discussing and commenting on the books. There will be a monthly poll where users can vote for a book title to discuss or just leave a comment. 
+Page Turner Book Club is a dynamic app designed exclusively for book enthusiasts, providing them with a platform to discover new books and share their recommendations. It caters to individuals who have a genuine passion for reading and enjoy engaging in discussions and commentary surrounding books. One of the key features of Page Turner Book Club is its monthly poll, allowing users to vote on book titles to determine the next book for discussion. Additionally, users are encouraged to leave comments and participate in conversations, fostering a vibrant community of like-minded readers. 
 
 
 ## Table of contents
@@ -26,6 +26,7 @@ Page Turner Book Club is an app for book lovers to find books to read and upload
     + [Footer](#footer)
     + [Home Page](#home-page)
     + [Books](#books-page)
+    + [Books detail](#books-detail)
 * [User Account Pages](#user-account-pages)
     + [My Books](#my-books)
     + [Add Books](#add-book-form)
@@ -34,8 +35,7 @@ Page Turner Book Club is an app for book lovers to find books to read and upload
     + [Vote Question](#vote-question)
     + [Vote Choices](#vote-choices)
     + [Vote Results](#Vote-results)
-    + [Error Pages](#error-pages)
-    + [Future Features](#future-features)
+    + [Pending Features](#future-features)
   * [Deployment - Heroku](#deployment---heroku)
   * [Forking this repository](#forking-this-repository)
   * [Languages](#languages)
@@ -91,12 +91,12 @@ Color palette from Colormind
 
 ![colormind](https://res.cloudinary.com/dne60wscn/image/upload/v1684098289/static/readme%20images/Colormind-pageturner_brcmmp.jpg)
 
-The website embraces a color scheme that primarily features a soft and gentle pale yellow for the backgrounds while employing a pink shade for accents. The navigation bar adopts a sophisticated and subdued dark grey-blue tone, while the footer has a vibrant touch of orange.
+The website color scheme primarily features a soft and gentle pale yellow for the backgrounds while employing a darker yellow for accents. The navigation bar adopts a sophisticated and subdued dark grey-blue tone, while the footer has a vibrant touch of orange.
 
-These carefully selected colors create a harmonious and neutral ambiance, while simultaneously offering distinct contrasts that add visual interest to the design. By combining neutral and contrasting colors, the website achieves a balanced and engaging aesthetic that appeals to users and enhances their overall experience.
+These carefully selected colors create a harmonious and neutral ambiance, while simultaneously offering distinct contrasts that add visual interest to the design.
 
 #### Imagery
-There are only a few static images on the site-s main page. Three big images for the carousel and one smaller one at the bottom for the featurette.  The rest of the imagery will be uploaded by users or the admin when adding books to the club. 
+There are only a few static images on the site's main page. Three big images for the carousel and one smaller one at the bottom for the featurette.  The rest of the imagery will be uploaded by users or the admin when adding books to the club. 
 
 #### Fonts
 Open Sans imported via Google Fonts is the main font used for the website.  Sans Serif is the fallback font.
@@ -152,14 +152,15 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 ### Custom error pages:
 
-Custom Error Pages were created to give the user more information on the error and to provide them with buttons to guide them back to the site.
+Custom error pages were meticulously designed and implemented to provide users with comprehensive information when encountering errors and to guide them seamlessly back to the site. 
 
-![404](https://res.cloudinary.com/dne60wscn/image/upload/v1684152882/static/readme%20images/404_er7mvj.jpg)
+![error](https://res.cloudinary.com/dne60wscn/image/upload/v1684152882/static/readme%20images/404_er7mvj.jpg)
 
-- 400 Bad request - Page Turner Book Club is unable to handle this request.
-- 403 Page Forbidden- The page you are trying to access has forbidden content.
-- 404 Page Not Found - Oh no! Whatever book you are looking for doesn't seem to exist.
-- 500 Server error- Oh no! Something just isn't right. Please come back later.
+- 400 Bad Request - Page Turner Book Club is unable to handle this request.
+- 403 Page Forbidden - The page you are trying to access has forbidden content.
+- 404 Page Not Found - Oh no! Whatever book you are lookin for doesn't seem to exist.
+- 500 Server Error - Oh no! Something just isn't right. Please come back later.
+
 
 ## Features
 
@@ -212,6 +213,25 @@ Custom Error Pages were created to give the user more information on the error a
 
 ![books](https://res.cloudinary.com/dne60wscn/image/upload/v1684098290/static/readme%20images/bookspage_feq03f.jpg)
 
+## Books detail page
+
+- The book detail section displays the book cover image, author, title, and full book description.
+- It also displays a heart with a number next to it where the user can like a book. Also there are bubble speeches with a number to show if the book has any comments. 
+
+![book_detail](https://res.cloudinary.com/dne60wscn/image/upload/v1684858252/static/readme%20images/booksdetail_guwt8m.jpg)
+
+
+## Comment Section
+
+- The comments section lists all comments left by users for that particular book.
+- Comments can only be left if a user is logged in. Any comments left by the user must be first approved by the admin. Once approved th comment will show on the book detail page.
+
+![comments](https://res.cloudinary.com/dne60wscn/image/upload/v1684858273/static/readme%20images/comments_tk7cuz.jpg)
+
+
+
+## User Account Pages
+
 **Sign Up**
  ![signup](https://res.cloudinary.com/dne60wscn/image/upload/v1684098289/static/readme%20images/singup_fsyeif.jpg)
 
@@ -228,21 +248,12 @@ Custom Error Pages were created to give the user more information on the error a
 
 - To enhance the user experience, success messages were incorporated to provide immediate feedback when users successfully log in or log out
 
-## Books detail page
-
-- The book detail section displays the book cover image, author, title, and full book description.
-- It also displays a heart with a number next to it where the user can like a book. Also there are bubble speeches with a number to show if the book has any comments. 
-
-![book_detail](https://res.cloudinary.com/dne60wscn/image/upload/v1684240602/static/readme%20images/bookdetail_q7loii.jpg)
-
-## Comment Section
-
-- The comments section lists all comments left by users for that particular book.
-- Comments can only be left if a user is logged in. Any comments left by the user must be first approved by the admin. Once approved th comment will show on the book detail page.
-
-![comments]
 
 ## My Book
+
+- Once the user is logged in, if it has uploaded any books, they will be displayed on this view. From here they have to option to edit or deleted the books uploded by themselves.
+
+![my_books](https://res.cloudinary.com/dne60wscn/image/upload/v1684856399/static/readme%20images/mybooks_v7y73j.jpg)
 
 ## Add Book Form
 
@@ -263,7 +274,7 @@ Custom Error Pages were created to give the user more information on the error a
 - The form opens with all fields populated with the original content.
 - If a user tries to edit a book (by changing the URL) without being signed in they are redirected to the login page.
 
-### Delete Recipe
+### Delete Book
 
  ![deletebook](https://res.cloudinary.com/dne60wscn/image/upload/v1684100192/static/readme%20images/delet4ebook_ke4jyp.jpg)
 
@@ -275,6 +286,8 @@ Custom Error Pages were created to give the user more information on the error a
 - The vote question will only display the last poll title available for the coming month. 
 - The user has the option to click on the **vote now** button to see the book options for the vote, or to click on **results** to see the results up to the moment.
 
+![poll-question](https://res.cloudinary.com/dne60wscn/image/upload/v1684856757/static/readme%20images/pollquestion_wwdury.jpg)
+
 ### Vote choices
 
 - The vote Choices will display the books up for a vote. A card with 3 books each with its Cover, Title, Author, and a **Vote for this book** button will be shown to the user.
@@ -282,7 +295,7 @@ Custom Error Pages were created to give the user more information on the error a
 - If the user tries to vote for a second time a message will appear to inform the *they have already voted on this question*. 
 - If a user tries to access the vote (by changing the URL) without being signed in they are redirected to the login page.
 
-![vote-choices](https://res.cloudinary.com/dne60wscn/image/upload/v1684100161/static/readme%20images/vote_rffnew.jpg)
+![vote-choices](https://res.cloudinary.com/dne60wscn/image/upload/v1684856677/static/readme%20images/pollvote_v3t89z.jpg)
 
 ### Vote results
 
@@ -290,22 +303,12 @@ Custom Error Pages were created to give the user more information on the error a
 
 ![vote-results](https://res.cloudinary.com/dne60wscn/image/upload/v1684100161/static/readme%20images/results_lhy6sb.jpg)
 
-### Error Pages
 
-Custom error pages were meticulously designed and implemented to provide users with comprehensive information when encountering errors and to guide them seamlessly back to the site. 
-
-![error](https://res.cloudinary.com/dne60wscn/image/upload/v1684152882/static/readme%20images/404_er7mvj.jpg)
-
-- 400 Bad Request - Page Turner Book Club is unable to handle this request.
-- 403 Page Forbidden - The page you are trying to access has forbidden content.
-- 404 Page Not Found - Oh no! Whatever book you are lookin for doesn't seem to exist.
-- 500 Server Error - Oh no! Something just isn't right. Please come back later.
-
-### Future Features
+### Pending Features
 
 - Add a filter option when accessing the books page, so the users can filter books by the different genres.
 - Add a calendar for the user to see when signed in with the time and date of the monthly book discussion. 
-- Send automatic invitation to the users and reminders with a link to connect to the meeting. 
+- Send automatic invitations to the users and reminders with a link to connect to the meeting. 
 
 ## Deployment - Heroku
 
@@ -388,6 +391,7 @@ The site is now live and operational.
 - [Cloudinary](https://cloudinary.com/): the image hosting service used to upload images
 - [Bootstrap 5](https://getbootstrap.com/): CSS Framework for developing responsiveness and styling
 - [Tables Generator](https://www.tablesgenerator.com/markdown_tables): Used to convert excel testing tables to markdown
+- [Javascript alert message](https://stackoverflow.com/questions/23101966/bootstrap-alert-auto-close)
 
 ## Credits
 
@@ -405,6 +409,8 @@ The site is now live and operational.
 - [Another Poll](https://prettyprinted.com/tutorials/creating-a-poll-app-in-django/)
 - [More polls](https://www.geeksforgeeks.org/voting-system-project-using-django-framework/)
 - [The Gloss Book CLub](https://theglossbookclub.com/): for inspirations and a few frases.
+- [Success deleted message](https://www.pythontutorial.net/django-tutorial/django-deleteview/)
+- [Success deleted message](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown)
 
 ## Acknowledgments
 

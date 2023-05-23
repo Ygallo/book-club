@@ -28,6 +28,7 @@
                     <h3 class="card-title">{{ book.title }}</h3>
                     <p class="card-text">{{ book.description }}</p>
                         
+                    <div class="heart-bubble-container">
                         <!-- Book likes -->
                         <div class="col-heart">
                             <strong>
@@ -53,7 +54,7 @@
                                     {{ total_comments }}</strong>
                                 {% endwith %}
                             </div>
-                       
+                    </div>  
                 </div>    
             </div>
         </div>     
@@ -96,7 +97,7 @@
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-readmore">Submit</button>
+                    <button type="submit" class="btn btn-readmore text-warning">Submit</button>
                 </form>
                 {% endif%}
                 {% endif%}

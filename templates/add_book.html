@@ -11,12 +11,13 @@
         <h5 class="card-title">Add a Book to the Club</h5>
         <p class="card-text">Here you can suggest a book you like to the club.</p>
             
-            {{ form.media }}
+           
             <div class="col">
                 {% if user.is_authenticated %}
                 <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
                     {{ form | crispy }}
                     {% csrf_token %}
+                    {{ form.media }}
                     
                     <button type="submit" class="btn btn-signup btn-account">Submit</button>
                 </form>

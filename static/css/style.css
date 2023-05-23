@@ -1,6 +1,10 @@
 
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap);
 
+body {
+    font-family: 'open sans', 'sans serif'; 
+}
+
 /* Header - Navigation */
 .blue {
     background-color: #2e3a42;
@@ -135,7 +139,8 @@
 }
 
 .author {
-    background-color: #eb6162;
+    background-color: #2e3a42;
+    color:#f2ecce
 }
 
 .btn-readmore {
@@ -184,6 +189,10 @@
     width: 50%;
     margin: 20px auto;
     float: left;
+}
+
+.heart-bubble-container {
+    width: 100%;
 }
 
 /* Footer */
