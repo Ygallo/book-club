@@ -75,17 +75,16 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/) with no 
 | Home         	| 73          	| 100           	| 92            	| 100 	|
 | Books        	| 99          	| 96            	| 92            	| 90  	|
 | book_detail  	| 99          	| 97            	| 92            	| 100 	|
-| add_book     	|             	|               	|               	|     	|
-| edit_book    	|             	|               	|               	|     	|
-| delete_book  	|             	|               	|               	|     	|
-| my_books     	|             	|               	|               	|     	|
+| add_book     	| 98          	| 100           	| 100           	| 100 	|
+| edit_book    	| 99          	| 98            	| 100           	| 100 	|
+| delete_book  	| 100         	| 100           	| 100           	| 100 	|
+| my_books     	| 93          	| 98            	| 100           	| 90  	|
 | poll/index   	| 99          	| 100           	| 100           	| 100 	|
-| poll/details 	|             	|               	|               	|     	|
-| poll/results 	|             	|               	|               	|     	|
+| poll/details 	| 85          	| 100           	| 100           	| 100 	|
+| poll/results 	| 97          	| 100           	| 100           	| 100 	|
 | login        	| 99          	| 100           	| 92            	| 100 	|
 | logout       	| 99          	| 100           	| 92            	| 100 	|
 | signup       	| 99          	| 100           	| 92            	| 100 	|
-| 400          	|             	|               	|               	|     	|
 
 ## Browser Testing
 - The Website was tested on Google Chrome and Firefox  browsers with no issues noted.

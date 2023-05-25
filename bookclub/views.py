@@ -159,7 +159,7 @@ class DeleteBook(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
 
 class BookLike(View):
     """
-    View that allows users to like a book in club
+    View that allows users to like a book in the club
     """
 
     def post(self, request, slug):

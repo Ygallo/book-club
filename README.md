@@ -37,7 +37,7 @@ Page Turner Book Club is a dynamic app designed exclusively for book enthusiasts
     + [Vote Results](#Vote-results)
     + [Pending Features](#future-features)
   * [Deployment - Heroku](#deployment---heroku)
-  * [Forking this repository](#forking-this-repository)
+  * [Cloning this repository](#cloning-this-repository)
   * [Languages](#languages)
   * [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
   * [Credits](#credits)
@@ -357,10 +357,14 @@ Add the following Config Vars in Heroku:
 
 The site is now live and operational.
 
-## Forking this repository
+## Cloning this repository
 - Locate the repository at this link [Page Turner Book Club](https://github.com/Ygallo/book-club).
-- At the top of the repository, on the right side of the page, select "Fork" from the buttons available. 
-- A copy of the repository is now created.
+- Above the list of files, click on the green button with the word: Code. 
+- Copy the URL for the repository using HTTPS.
+- Open the Terminal
+- Change the current working directory to the location where you want the cloned directory.
+- Type **git clone**, and then paste the URL copied earlier.
+- Press **Enter** to create your local clone.
 
 ## Languages
 
