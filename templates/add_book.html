@@ -2,7 +2,7 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
-<!-- Add a book card form -->
+<!-- Add a book form -->
 <div class="card justify-content-center" style="max-width: 800px; margin: 20px auto;">
     <div class="card-header">
       Suggest a Book
@@ -11,14 +11,14 @@
         <h5 class="card-title">Add a Book to the Club</h5>
         <p class="card-text">Here you can suggest a book you like to the club.</p>
             
-           
+           <!-- Form -->
             <div class="col">
                 {% if user.is_authenticated %}
                 <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
+                    {{ form.media }}
                     {{ form | crispy }}
                     {% csrf_token %}
-                    {{ form.media }}
-                    
+                                        
                     <button type="submit" class="btn btn-signup btn-account">Submit</button>
                 </form>
                 {% endif %}

@@ -118,6 +118,7 @@ class AddBook(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     """
     View to allow users once logged in to add a book
     """
+    model = Book
     form_class = BookForm
     template_name = 'add_book.html'
     success_url = reverse_lazy('my_books')

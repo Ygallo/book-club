@@ -87,7 +87,7 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/) with no 
 | signup       	| 99          	| 100           	| 92            	| 100 	|
 
 ## Browser Testing
-- The Website was tested on Google Chrome and Firefox  browsers with no issues noted.
+- The Website was tested on Google Chrome. Microsoft Edge and Firefox  browsers with no issues noted.
 
 ## Device Testing
 The responsive design was checked using Chrome developer tools across multiple devices with structural integrity holding for the various sizes. The website was also viewed on different devices such as Desktop, Laptop, Google S6 and Samsung phone to ensure responsiveness on various screen sizes. The results where as intended. 
@@ -260,7 +260,7 @@ The responsive design was checked using Chrome developer tools across multiple d
 - **Fix**: updated Crispy Bootstrap 4 to Crispy Bootstrap 5.
 
 - **Bug**: style sheet not updating.
-- **Fix**: solved until deployment by adding **?{% now "U" %}**to the end of the href. When the project was deployed for submission, the style sheet was not working on the deployed app. The solution was to remove **?{% now "U" %}** and upload the stylesheet to Cloudinary
+- **Fix**: solved until deployment by adding **?{% now "U" %}** to the end of the href. When the project was deployed for submission, the style sheet was not working on the deployed app. The solution was to remove **?{% now "U" %}** and upload the stylesheet to Cloudinary
 
 ## Unfixed bugs
 

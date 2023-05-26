@@ -1,7 +1,7 @@
 from .models import Comment, Book
 from django import forms
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
-
+from django_summernote.fields import SummernoteTextField
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -13,7 +13,7 @@ class BookForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(BookForm, self).__init__(*args, **kwargs)
-        self.fields['description'].widget = forms.Textarea(attrs={'rows': 10})
+        description = SummernoteTextField()
 
     class Meta:
         model = Book
@@ -27,5 +27,5 @@ class BookForm(forms.ModelForm):
             'image',
         ]
         widgets = {
-           'description': SummernoteInplaceWidget(),
+           'description': SummernoteWidget(),
          }

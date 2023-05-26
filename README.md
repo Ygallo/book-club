@@ -3,6 +3,7 @@
 
 Page Turner Book Club is a dynamic app designed exclusively for book enthusiasts, providing them with a platform to discover new books and share their recommendations. It caters to individuals who have a genuine passion for reading and enjoy engaging in discussions and commentary surrounding books. One of the key features of Page Turner Book Club is its monthly poll, allowing users to vote on book titles to determine the next book for discussion. Additionally, users are encouraged to leave comments and participate in conversations, fostering a vibrant community of like-minded readers. 
 
+![PageTurner](https://res.cloudinary.com/dne60wscn/image/upload/v1685005091/static/readme%20images/responsive_qrsrjz.jpg)
 
 ## Table of contents
 - [Page Turner Book Club](#page-turner-book-club)
@@ -128,7 +129,7 @@ The **Choice** model represents the book choices the members will vote on. This 
 
 The **Vote** represents a poll (question) created to vote on the proposed books.
 
-The **Book of the Month** is the Model that will display the winner book of the vote.
+The **Book of the Month** is the Model that will display the book the club is reading for the current month.
 
 The diagram below details the database schema.
 
@@ -146,7 +147,7 @@ The login_required decorator is used to ensure only logged in users can vote on 
 
 ### Database Security
 
-To enhance security, I implemented specific measures in the project. Firstly, I ensured that sensitive information like the database URL and secret key was stored in the env.py file. By keeping these details separate and preventing them from being pushed to Github during the initial setup, I minimized the risk of unauthorized access or unwanted connections to the database.
+To enhance security, I implemented specific measures in the project. Firstly, I ensured that sensitive information like the database URL and secret key was stored in the env.py file and that the env.py file is included in my gitignore file. By keeping these details separate and preventing them from being pushed to Github during the initial setup, I minimized the risk of unauthorized access or unwanted connections to the database.
 
 Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
 
@@ -244,14 +245,14 @@ Custom error pages were meticulously designed and implemented to provide users w
 
 ![signout](https://res.cloudinary.com/dne60wscn/image/upload/v1684239900/static/readme%20images/signout_f4fj9t.jpg)
 
-- The Signup, Log in, and Log out functionality was implemented using Django allauth. This authentication package was integrated into the project, enabling seamless user registration, login, and logout processes.
+- The Signup, Login, and Log out functionality was implemented using Django allauth. This authentication package was integrated into the project, enabling seamless user registration, login, and logout processes.
 
 - To enhance the user experience, success messages were incorporated to provide immediate feedback when users successfully log in or log out
 
 
 ## My Book
 
-- Once the user is logged in, if it has uploaded any books, they will be displayed on this view. From here they have to option to edit or deleted the books uploded by themselves.
+- Once the user is logged in, they will be displayed on this view if it has uploaded any books. From here they have the option to edit or delete the books uploaded.
 
 ![my_books](https://res.cloudinary.com/dne60wscn/image/upload/v1684856399/static/readme%20images/mybooks_v7y73j.jpg)
 
@@ -263,12 +264,11 @@ Custom error pages were meticulously designed and implemented to provide users w
 - The image field also has a default image to display as the book cover. in case the user do not upload a cover.
 - The form fields for 'Description' include a WYSIWYG editor called Summernote to help the user format their content.
 
-
-# img
+![Addbook](https://res.cloudinary.com/dne60wscn/image/upload/v1685128054/static/readme%20images/addbook_n7xbsf.jpg)
 
 ### Edit Book Form
 
-# img
+![editbook](https://res.cloudinary.com/dne60wscn/image/upload/v1685128408/static/readme%20images/editbook1_pvyehs.jpg)
 
 -  Only a logged-in user can choose to edit a book they uploaded and showing in their "My Books" page. This is done by clicking the edit button on the book card. 
 - The form opens with all fields populated with the original content.
@@ -315,11 +315,11 @@ Custom error pages were meticulously designed and implemented to provide users w
 To deploy this page to Heroku from its GitHub repository, the following steps were taken:
 
 ### Create the Heroku App:
-- Log in to [Heroku](https://dashboard.heroku.com/apps).
-- On the main page click the button labeled New in the top right corner and from the drop-down menu select "Create New App".
-- Enter a unique app name.
-- Next select your region.
-- Click on the Create App button.
+- Logged in to [Heroku](https://dashboard.heroku.com/apps).
+- On the main page clicked the button labeled **New** in the top right corner and from the drop-down menu select **"Create New App"**.
+- Entered the chosen app name.
+- Next select the region.
+- Clicked on the **Create App** button.
 
 ### Attach the Postgres database:
 - In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
@@ -353,7 +353,7 @@ Add the following Config Vars in Heroku:
 ### Deploy
 - NB: Ensure in Django settings, DEBUG is False
 - Go to the deploy tab on Heroku and connect to GitHub, then to the required repository. 
-- Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys. Every push to main will deploy a new version of this app. Deploys happen automatically.
+- Scroll to the bottom of the deploy page and clicked Enable Automatic Deploys. Every push to main will deploy a new version of this app. Deploys happen automatically.
 
 The site is now live and operational.
 
@@ -374,26 +374,26 @@ The site is now live and operational.
 - Javascript
 
 ## Frameworks - Libraries - Programs Used
-- [Django](https://www.djangoproject.com/): Main python framework used in the development of this project
-- [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html): authentication library used to create the user accounts
-- [PostgreSQL](https://www.postgresql.org/) was used as the database for this project.
-- [Heroku](https://dashboard.heroku.com/login) - was used as the cloud based platform to deploy the site on.
+- [Django](https://www.djangoproject.com/)
+- [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Heroku](https://dashboard.heroku.com/login)
 - [Responsive](https://ui.dev/amiresponsive) - Used to verify responsiveness of website on different devices.
-- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used for overall development and tweaking, including testing responsiveness and performance.
-- [Font Awesome](https://fontawesome.com/) - Used for icons in information bar.
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
+- [Font Awesome](https://fontawesome.com/) 
 - [GitHub](https://github.com/) - Used for version control and agile tool.
-- [Google Fonts](https://fonts.google.com/) - Used to import and alter fonts on the page.
-- [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
-- [PEP8 Online](http://pep8online.com/) - used to validate all the Python code
-- [Jshint](https://jshint.com/) - used to validate javascript
-- [Colormind](http://colormind.io/bootstrap/) - Used to create colorworke.
-- [Favicon](https://favicon.io/) - Used to create the favicon.
-- [Lucidchart](https://lucid.app/documents#/dashboard) - used to create the database schema design
-- [Grammerly](https://app.grammarly.com/) - used to proof read the README.md
-- [Summernote](https://summernote.org/): A WYSIWYG editor to allow users to edit their posts
-- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) used to manage Django Forms
-- [Cloudinary](https://cloudinary.com/): the image hosting service used to upload images
-- [Bootstrap 5](https://getbootstrap.com/): CSS Framework for developing responsiveness and styling
+- [Google Fonts](https://fonts.google.com/)
+- [W3C](https://www.w3.org/) 
+- [PEP8 Online](http://pep8online.com/) 
+- [Jshint](https://jshint.com/)
+- [Colormind](http://colormind.io/bootstrap/)
+- [Favicon](https://favicon.io/)
+- [Lucidchart](https://lucid.app/documents#/dashboard) - to create the database design
+- [Grammerly](https://app.grammarly.com/) - for proof reading the README.md
+- [Summernote](https://summernote.org/)
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) 
+- [Cloudinary](https://cloudinary.com/): for hosting the uploaded images.
+- [Bootstrap 5](https://getbootstrap.com/)
 - [Tables Generator](https://www.tablesgenerator.com/markdown_tables): Used to convert excel testing tables to markdown
 - [Javascript alert message](https://stackoverflow.com/questions/23101966/bootstrap-alert-auto-close)
 
@@ -412,9 +412,9 @@ The site is now live and operational.
 - [Poll](https://medium.com/analytics-vidhya/building-a-simple-poll-system-in-django-part-i-a0bfb4fc3699)
 - [Another Poll](https://prettyprinted.com/tutorials/creating-a-poll-app-in-django/)
 - [More polls](https://www.geeksforgeeks.org/voting-system-project-using-django-framework/)
-- [The Gloss Book CLub](https://theglossbookclub.com/): for inspirations and a few frases.
+- [The Gloss Book Club](https://theglossbookclub.com/): for inspirations and a few frases.
 - [Success deleted message](https://www.pythontutorial.net/django-tutorial/django-deleteview/)
-- [Success deleted message](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown)
+- [Success deleted message - Stackoverflow](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown)
 
 ## Acknowledgments
 
