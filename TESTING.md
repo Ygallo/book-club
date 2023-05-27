@@ -72,7 +72,7 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/) with no 
 
 | Page         	| Performance 	| Accessibility 	| Best Practise 	| SEO 	|
 |--------------	|-------------	|---------------	|---------------	|-----	|
-| Home         	| 73          	| 100           	| 92            	| 100 	|
+| Home         	| 77          	| 100           	| 92            	| 100 	|
 | Books        	| 99          	| 96            	| 92            	| 90  	|
 | book_detail  	| 99          	| 97            	| 92            	| 100 	|
 | add_book     	| 98          	| 100           	| 100           	| 100 	|
@@ -265,3 +265,5 @@ The responsive design was checked using Chrome developer tools across multiple d
 ## Unfixed bugs
 
 -CSS style file stopped updating mid project, after hard reloading still would not upload changes, I added this code {% now "U" %} from  [Stack overflow](https://stackoverflow.com/questions/52682812/django-css-not-updating). This allowed my to keep working until deployment, but once deployed css was not loading at all. Finally uploaded the css to cloudinary and the styles load on the deployed page. This is not ideal as every change on css means I have to upload a new file but works until a better solution is reach.
+
+-SummernoteWidget: The widget will not appear on the template view (add_book), I reached out to tutor support, and it took 3 tutors to finally have it displayed. Unfortunately, it will only display on development, and not on the deployed site, and with the changes the description field will not work. I decided to revert to my original code, where the form works and allows user to add books, without the editor. 
