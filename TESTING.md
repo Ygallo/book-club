@@ -72,7 +72,7 @@ All Python files were run through [Pep8](https://pep8ci.herokuapp.com/) with no 
 
 | Page         	| Performance 	| Accessibility 	| Best Practise 	| SEO 	|
 |--------------	|-------------	|---------------	|---------------	|-----	|
-| Home         	| 77          	| 100           	| 92            	| 100 	|
+| Home         	| 80          	| 100           	| 92            	| 100 	|
 | Books        	| 99          	| 96            	| 92            	| 90  	|
 | book_detail  	| 99          	| 97            	| 92            	| 100 	|
 | add_book     	| 98          	| 100           	| 100           	| 100 	|
