@@ -11,14 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView
 from django.contrib import messages
 
-# Create your views here.
-
-
-class handler400(generic.ListView):
-    model = Book
-    queryset = Book.objects.order_by('title')
-    template_name = "404.html"
-    paginate_by = 8
+# Create your views here
 
 
 class Home(generic.TemplateView):
